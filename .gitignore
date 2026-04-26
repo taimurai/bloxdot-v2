@@ -1,0 +1,14 @@
+# Vercel CLI link (per-machine, not for repo)
+.vercel/
+
+# OS
+.DS_Store
+
+# Node / tooling
+node_modules/
+
+# Local archive of the previous Webflow site — too large for git, kept locally only
+Old Site/
+
+# Claude harness state
+.claude/

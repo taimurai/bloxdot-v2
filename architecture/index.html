@@ -1,0 +1,1614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Architectural Design in Lahore · BloxDot · Residential &amp; Commercial</title>
+
+<!-- Primary SEO -->
+<meta name="description" content="Architectural design for residential and commercial projects in Lahore. Site study to construction documents, led by principal Sohaib Sajid."/>
+<meta name="keywords" content="architect Lahore, architectural design Lahore, architectural design Pakistan, residential architect Lahore, commercial architect Pakistan, villa architect Lahore, apartment architect Lahore, hospitality architect Pakistan, renovation architect Lahore"/>
+<meta name="author" content="BloxDot"/>
+<link rel="canonical" href="https://bloxdot.com/architecture"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="BloxDot"/>
+<meta property="og:title" content="Architectural Design in Lahore · BloxDot"/>
+<meta property="og:description" content="Architectural design for residential and commercial projects in Lahore. Site study to construction documents, led by principal Sohaib Sajid."/>
+<meta property="og:url" content="https://bloxdot.com/architecture"/>
+<meta property="og:image" content="https://bloxdot.com/assets/og/architecture.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="BloxDot Architecture — drawing sets, structural and MEP coordination, approval drawings."/>
+<meta property="og:locale" content="en_PK"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Architectural Design in Lahore · BloxDot"/>
+<meta name="twitter:description" content="Architectural design for residential and commercial projects in Lahore. Site study to construction documents, led by principal Sohaib Sajid."/>
+<meta name="twitter:image" content="https://bloxdot.com/assets/og/architecture.jpg"/>
+<meta name="twitter:image:alt" content="BloxDot Architecture — drawing sets, structural and MEP coordination, approval drawings."/>
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" href="/assets/favicon.png"/>
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+<meta name="theme-color" content="#F2EDE4"/>
+
+<!-- Google Fonts — non-blocking load -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,200..900,0..100&family=Montserrat:wght@300..800&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,200..900,0..100&family=Montserrat:wght@300..800&display=swap"/></noscript>
+
+<!-- LCP hero image preload -->
+<link rel="preload" as="image" href="/assets/img/architecture/hero@1x.webp" imagesrcset="/assets/img/architecture/hero@1x.webp 1200w, /assets/img/architecture/hero.webp 2000w" imagesizes="(max-width: 900px) 100vw, 65vw" fetchpriority="high"/>
+
+<link rel="stylesheet" href="/tokens.css"/>
+
+<!-- JSON-LD: Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://bloxdot.com/architecture/#service",
+  "name": "Architectural Design",
+  "serviceType": "Architecture",
+  "provider": { "@id": "https://bloxdot.com/#organization" },
+  "author": { "@id": "https://bloxdot.com/about/#sohaib-sajid" },
+  "datePublished": "2026-04-20T00:00:00+05:00",
+  "dateModified": "2026-04-26T00:00:00+05:00",
+  "areaServed": ["Lahore", "Karachi", "Islamabad", "Dubai"],
+  "description": "Architectural design for residential, multi-unit residential, commercial, hospitality, and renovation projects in Pakistan and the Gulf. Concept through construction documents, led by principal architect Sohaib Sajid.",
+  "url": "https://bloxdot.com/architecture",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Architecture services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential architecture" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-unit residential architecture" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial architecture" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hospitality architecture" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Renovation and retrofit" } }
+    ]
+  }
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList (2 levels per v2.1 amendment) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bloxdot.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Architecture", "item": "https://bloxdot.com/architecture" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does an architectural design take in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A residential project takes four to six months from signed brief to construction-ready drawings. Commercial projects run six to nine months. Renovations are faster, two to four months. The timeline depends on project scale, approval requirements in your jurisdiction, and how quickly the client returns decisions on concept and materials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does an architect deliver in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A complete architectural set. That means site plan, floor plans, elevations, sections, and detail drawings at the scales required for construction. It includes structural coordination with engineering partners, MEP coordination, door and window schedules, and a specifications document detailed enough for a contractor to price from."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes BloxDot different as an architect in Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sohaib leads design on every project personally, from concept through construction documents. The same principal who takes the brief is the principal who reviews the final drawing set. We also offer construction as a core service, which means clients can engage us for design only or for design and construction together under one contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an architect if I already have a contractor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for any project that needs permit approval, structural modifications, or meaningful spatial changes. A contractor builds. An architect decides what gets built, how it works spatially, and how the structure handles loads, light, and movement. Without proper architectural drawings, contractors estimate from incomplete information, which is where most cost overruns and design failures originate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hire BloxDot for design only?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most of our architecture engagements end at the drawing set. We hand over a tender-ready package with structural and MEP coordination already resolved, and the client appoints a contractor of their choice. The set is detailed enough that a competent contractor can price and build from it without coming back for clarifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does architectural design cost in Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Architecture fees scale with built-up area, structural complexity, and the level of detailing a project demands. Residential villas typically run as a percentage of construction cost. Renovations and smaller homes are quoted as fixed fees. Commercial projects are scoped against a defined deliverable list. We send a written fee proposal after the first call. No blind estimates over the phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle approvals and permits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We prepare the approval drawing set to the standards required by your local authority. The submission and follow-up with the authority is typically handled by the client or a permit consultant, with us coordinating closely on any technical clarifications. For complex projects, we can recommend permit consultants we have worked with before."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can BloxDot work on a site outside Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Architecture travels well because most of the work is studio-based. We have run projects in Karachi, Islamabad, and Dubai from our Lahore studio. Site visits are scheduled around concept sign-off, drawing issue, and key construction milestones rather than a weekly cadence, so the travel cost stays proportional to the scope."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-06WGJ42YV2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-06WGJ42YV2');
+</script>
+
+<!-- Meta Pixel — lazy-loaded on first user interaction to protect LCP -->
+<script>
+(function(){
+  var loaded = false;
+  function loadPixel(){
+    if (loaded) return;
+    loaded = true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1646000253120189');
+    fbq('track','PageView');
+  }
+  var events = ['scroll','mousemove','touchstart','keydown'];
+  function trigger(){
+    events.forEach(function(ev){ window.removeEventListener(ev, trigger, { passive: true }); });
+    loadPixel();
+  }
+  events.forEach(function(ev){ window.addEventListener(ev, trigger, { passive: true, once: true }); });
+  setTimeout(loadPixel, 5000);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1646000253120189&ev=PageView&noscript=1"/></noscript>
+
+<style>
+  :root { --accent: var(--bd-crimson); }
+  html { scroll-behavior: smooth; }
+  body { overflow-x: hidden; background: var(--bd-bone); }
+
+  /* ============ PLACEHOLDER SLOTS ============ */
+  .ph {
+    position: relative;
+    background-color: var(--bd-stone);
+    background-image:
+      linear-gradient(135deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 14px),
+      linear-gradient(45deg,  rgba(255,255,255,0.05) 0 1px, transparent 1px 14px);
+    overflow: hidden;
+    display: block;
+  }
+  .ph::before {
+    content: '';
+    position: absolute; inset: 10px;
+    border: 1px solid rgba(255,255,255,0.22);
+    pointer-events: none;
+  }
+  .ph .ph-id {
+    position: absolute; top: 18px; left: 18px; right: 18px;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    display: flex; justify-content: space-between; gap: 10px;
+  }
+  .ph .ph-id .tag {
+    padding: 3px 7px;
+    background: rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .ph[data-aes="WARM"]    { background-color: #b89d73; }
+  .ph[data-aes="EARTH"]   { background-color: #8a6b4e; }
+  .ph[data-aes="ARCH"]    { background-color: #3e3e3c; }
+  .ph[data-aes="INK"]     { background-color: #2a2a29; }
+  .ph[data-aes="NEUTRAL"] { background-color: #5a564f; }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+    padding: 18px var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+    border-bottom: 1px solid transparent;
+    color: var(--bd-ink);
+  }
+  .nav.on-light { background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom-color: var(--rule); }
+  .nav a.home-link { display: inline-flex; align-items: center; }
+  .nav img.nav-wm { height: 18px; display: block; }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a.nav-link {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+    color: inherit; text-decoration: none; opacity: 0.72; transition: opacity var(--dur) var(--ease);
+  }
+  .nav-links a.nav-link:hover { opacity: 1; }
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 12px 20px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+    text-decoration: none; border: 0; cursor: pointer;
+    transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+  }
+  .btn-red:hover { transform: translateY(-1px); background: color-mix(in oklab, var(--accent) 88%, #000); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 20px;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+    color: inherit; text-decoration: none; border: 1px solid currentColor; background: transparent; cursor: pointer;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .btn-ghost:hover { background: currentColor; color: var(--bd-bone); }
+
+  /* ============ SHARED ============ */
+  .sec-label {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+  }
+  h1, h2, h3 { margin: 0; }
+  h1.display, h2.display {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280; letter-spacing: -0.035em; line-height: 0.98;
+    text-wrap: balance; color: var(--bd-ink);
+    text-transform: lowercase;
+  }
+  h1.display { font-size: clamp(44px, 5.6vw, 88px); }
+  h2.display { font-size: clamp(36px, 4.6vw, 68px); }
+  .dot { color: var(--accent); }
+
+  /* ============ SECTION 01 — HERO (35/65 with caption plate) ============ */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 35fr 65fr;
+    background: var(--bd-bone);
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: clamp(48px, 6vh, 96px) clamp(36px, 5vw, 80px) clamp(64px, 8vh, 120px) var(--page-pad);
+    display: flex; flex-direction: column; gap: clamp(24px, 3vh, 40px);
+    justify-content: space-between;
+  }
+  .hero-prehead {
+    display: flex; justify-content: space-between; gap: 16px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+  }
+  .hero-prehead .edition { color: var(--bd-brass); }
+  .hero-head { display: flex; flex-direction: column; gap: 22px; }
+  .hero-head h1 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 260; font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.98; letter-spacing: -0.035em;
+    text-transform: lowercase; text-wrap: balance; color: var(--bd-ink);
+    margin: 0;
+  }
+  .hero-sub {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 50;
+    font-weight: 320; font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.55; color: var(--fg-body); max-width: 38ch;
+    margin: 0;
+  }
+  .hero-cta-row {
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  }
+  .hero-bottom {
+    font-family: ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+    padding-top: 14px; border-top: 1px solid var(--rule);
+  }
+  .hero-image {
+    position: relative; height: 100%; min-height: 360px;
+  }
+  .hero-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 64px; }
+    .hero-image { aspect-ratio: 4/5; min-height: 0; height: auto; }
+    .hero-left { padding: 40px var(--page-pad); }
+    .hero-prehead { flex-direction: column; gap: 4px; align-items: flex-start; }
+  }
+
+  /* ============ SECTION 02 — FIVE PROJECT TYPES (index rows) ============ */
+  .sec-typology {
+    background: var(--bd-bone);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-typology-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-typology-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 88px);
+    align-items: start;
+  }
+  .sec-typology-head .intro {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.55; color: var(--fg-body); margin: 22px 0 0; max-width: 52ch;
+  }
+  .typology-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: clamp(28px, 3vw, 48px) clamp(24px, 3vw, 40px);
+  }
+  .typology-tile {
+    grid-column: span 2;
+    display: flex; flex-direction: column; gap: 20px;
+    text-decoration: none; color: inherit;
+  }
+  /* Center the last 2 tiles on desktop (cols 2-3 and 4-5) */
+  .typology-tile:nth-child(4) { grid-column: 2 / span 2; }
+  .typology-tile:nth-child(5) { grid-column: 4 / span 2; }
+
+  .typology-thumb {
+    width: 100%; aspect-ratio: 4/5;
+    position: relative;
+  }
+  .typology-thumb .ph { width: 100%; height: 100%; }
+  .typology-thumb .thumb-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .typology-title {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .typology-title .num {
+    font-family: ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+  }
+  .typology-title h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 300; font-size: clamp(22px, 2vw, 28px);
+    letter-spacing: -0.02em; line-height: 1.1;
+    text-transform: lowercase; color: var(--bd-ink);
+    margin: 0;
+  }
+  .typology-tile p {
+    font-size: 14px; line-height: 1.55; color: var(--fg-body);
+    margin: 0;
+  }
+  .typology-close {
+    margin-top: clamp(48px, 7vh, 72px);
+    padding-top: clamp(32px, 5vh, 48px);
+    border-top: 1px solid var(--rule);
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.55; color: var(--bd-ink);
+    text-align: center; text-wrap: balance;
+    max-width: 52ch; margin-left: auto; margin-right: auto;
+  }
+
+  @media (max-width: 900px) {
+    .sec-typology-head { grid-template-columns: 1fr; gap: 16px; }
+    .typology-grid { grid-template-columns: 1fr; gap: 40px; }
+    .typology-tile,
+    .typology-tile:nth-child(4),
+    .typology-tile:nth-child(5) { grid-column: 1 / -1; }
+  }
+
+  /* ============ SECTION 03 — DELIVERABLES ============ */
+  .sec-deliverables {
+    background: var(--bd-bone-soft);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-deliverables-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-deliverables-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 88px);
+    align-items: start;
+  }
+  .sec-deliverables-head .intro {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.55; color: var(--fg-body); margin: 22px 0 0; max-width: 52ch;
+  }
+  .deliverables-list {
+    border-top: 1px solid var(--rule);
+  }
+  .deliverables-row {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    padding: clamp(28px, 4vh, 40px) 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .deliverables-row h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 300; font-size: clamp(20px, 2vw, 26px);
+    letter-spacing: -0.015em; line-height: 1.15;
+    text-transform: lowercase; color: var(--bd-ink);
+    margin: 0;
+  }
+  .deliverables-row p {
+    font-size: 15px; line-height: 1.65; color: var(--fg-body);
+    margin: 0; max-width: 62ch;
+  }
+
+  @media (max-width: 900px) {
+    .sec-deliverables-head { grid-template-columns: 1fr; gap: 16px; }
+    .deliverables-row { grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ============ SECTION 04 — FLOW (reused homepage pattern) ============ */
+  .sec-process {
+    background: var(--bd-bone);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-process-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-process-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 88px);
+    align-items: start;
+  }
+  .sec-process-head .intro {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.55; color: var(--fg-body); margin: 22px 0 0; max-width: 52ch;
+  }
+  .flow {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    position: relative;
+  }
+  .flow::before {
+    content: ''; position: absolute;
+    top: 28px; left: 10%; right: 10%; height: 1px;
+    background: var(--rule-strong); z-index: 0;
+  }
+  .flow .step {
+    padding: 0 clamp(12px, 1.5vw, 20px);
+    text-align: center;
+    position: relative;
+  }
+  .flow .node {
+    width: 56px; height: 56px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: var(--bd-bone);
+    border: 1px solid var(--rule-strong);
+    display: grid; place-items: center;
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: 22px;
+    color: var(--accent);
+    position: relative; z-index: 2;
+  }
+  .flow .step-label {
+    font-family: ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .flow h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: clamp(17px, 1.4vw, 20px);
+    letter-spacing: -0.015em; line-height: 1.15;
+    text-transform: lowercase; color: var(--bd-ink);
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .flow p {
+    font-size: 13px; line-height: 1.55; color: var(--fg-body);
+    margin: 0 auto; max-width: 26ch;
+  }
+  .flow-note {
+    margin-top: clamp(48px, 7vh, 72px);
+    padding-top: clamp(32px, 5vh, 48px);
+    border-top: 1px solid var(--rule);
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.6; color: var(--bd-ink);
+    max-width: 62ch; margin-left: auto; margin-right: auto;
+    text-align: center; text-wrap: balance;
+  }
+
+  @media (max-width: 900px) {
+    .sec-process-head { grid-template-columns: 1fr; gap: 16px; }
+    .flow { grid-template-columns: 1fr; gap: 40px; }
+    .flow::before { display: none; }
+  }
+
+  /* ============ SECTION 05 — DRUM SOLO ============ */
+  .sec-standard {
+    background: var(--accent);
+    color: #fff;
+    padding: clamp(96px, 16vh, 180px) var(--page-pad);
+  }
+  .sec-standard-inner {
+    max-width: var(--col-max); margin: 0 auto;
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  .sec-standard .label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #ffffff; font-weight: 600;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.55);
+    padding-right: 24px;
+  }
+  .sec-standard h2 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280; font-size: clamp(40px, 5.4vw, 76px);
+    line-height: 1; letter-spacing: -0.035em;
+    margin: 0 0 36px;
+    color: #fff; text-transform: lowercase;
+    text-wrap: balance;
+  }
+  .sec-standard .body {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55; color: rgba(255,255,255,0.95);
+    max-width: 60ch; margin: 0 0 32px;
+  }
+  .sec-standard .cta-ghost {
+    color: #fff; border: 1px solid rgba(255,255,255,0.6);
+    padding: 14px 26px;
+    font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 600;
+    text-decoration: none;
+    display: inline-flex; gap: 10px; align-items: center;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .sec-standard .cta-ghost:hover { background: #fff; color: var(--accent); border-color: #fff; }
+
+  @media (max-width: 900px) {
+    .sec-standard-inner { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* ============ SECTION 06 — FEATURED WORK ============ */
+  .sec-work {
+    background: var(--bd-bone-soft);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-work-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-work-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 88px);
+    align-items: start;
+  }
+  .sec-work-head .intro {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.55; color: var(--fg-body); margin: 22px 0 0; max-width: 42ch;
+  }
+  .work-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(24px, 3vw, 48px);
+  }
+  .work-tile {
+    display: flex; flex-direction: column; gap: 0;
+    text-decoration: none; color: inherit;
+  }
+  .work-tile .ph { width: 100%; aspect-ratio: 4/5; }
+  .work-tile .tile-img {
+    width: 100%; height: auto; aspect-ratio: 4/5;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .work-tile .meta {
+    padding: 20px 0 0;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .work-tile .meta-row {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    font-family: ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 500;
+  }
+  .work-tile .meta-row .sep { opacity: 0.45; }
+  .work-tile .meta-row .status {
+    padding: 3px 8px;
+    color: var(--bd-ink);
+    background: var(--bd-plaster);
+  }
+  .work-tile .meta-row .status.status-completed { background: #c8d9c2; }
+  .work-tile .meta-row .status.status-concept { background: var(--bd-stone); }
+  .work-tile h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: clamp(22px, 2vw, 28px);
+    letter-spacing: -0.02em; line-height: 1.1;
+    text-transform: lowercase; color: var(--bd-ink);
+    margin: 0;
+  }
+  .work-tile p {
+    font-size: 14px; line-height: 1.55; color: var(--fg-body);
+    margin: 0;
+  }
+  .work-tile .view {
+    margin-top: 4px;
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bd-ink); font-weight: 600;
+    padding-bottom: 4px; border-bottom: 1px solid var(--bd-ink);
+    align-self: flex-start;
+    transition: gap var(--dur) var(--ease);
+    display: inline-flex; gap: 10px;
+  }
+  .work-tile:hover .view { gap: 18px; }
+  .work-closing {
+    margin-top: clamp(48px, 7vh, 72px);
+    padding-top: clamp(32px, 5vh, 48px);
+    border-top: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 20px;
+    align-items: center; text-align: center;
+  }
+  .work-closing p {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55; color: var(--bd-ink);
+    margin: 0; max-width: 52ch; text-wrap: balance;
+  }
+  .work-closing a.all {
+    font-family: ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bd-ink); font-weight: 600;
+    padding: 8px 0; border-bottom: 1px solid var(--bd-ink);
+    text-decoration: none;
+    display: inline-flex; gap: 12px; align-items: center;
+    transition: gap var(--dur) var(--ease);
+  }
+  .work-closing a.all:hover { gap: 20px; }
+
+  @media (max-width: 900px) {
+    .sec-work-head { grid-template-columns: 1fr; gap: 16px; }
+    .work-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ============ SECTION 07 — ENGAGEMENT (2 ways) ============ */
+  .sec-engage {
+    background: var(--bd-bone);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-engage-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-engage-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 72px);
+    align-items: start;
+  }
+  .engage-body {
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: clamp(40px, 6vw, 88px);
+    align-items: start;
+  }
+  .engage-body .body {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.35vw, 18px);
+    line-height: 1.65; color: var(--bd-ink);
+    max-width: 52ch;
+  }
+  .engage-body .body p + p { margin-top: 18px; }
+  .engage-cards {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .engage-card {
+    padding: 28px 28px;
+    background: var(--bd-bone-soft);
+    border: 1px solid var(--rule);
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .engage-card:hover {
+    background: var(--bd-plaster);
+    transform: translateY(-2px);
+  }
+  .engage-card .q {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.45; color: var(--bd-ink);
+    margin: 0;
+  }
+  .engage-card .link {
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .sec-engage-head { grid-template-columns: 1fr; gap: 16px; }
+    .engage-body { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ============ SECTION 08 — FAQ (reuse homepage pattern) ============ */
+  .sec-faq {
+    background: var(--bd-bone-soft);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-faq-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-faq-head {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 72px);
+    margin-bottom: clamp(48px, 7vh, 88px);
+    align-items: start;
+  }
+  .sec-faq-head .intro {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.55; color: var(--fg-body); margin: 22px 0 0; max-width: 46ch;
+  }
+  .faq-list { border-top: 1px solid var(--rule); }
+  .faq-item {
+    display: grid; grid-template-columns: 5fr 6fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    padding: clamp(24px, 3.2vh, 36px) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .faq-item summary {
+    grid-column: 1; grid-row: 1;
+    display: flex; align-items: start; justify-content: space-between;
+    gap: 24px;
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--dur) var(--ease);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover h3 { color: var(--accent); }
+  .faq-item h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 420; font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.25; letter-spacing: -0.015em;
+    color: var(--bd-ink); margin: 0;
+    text-wrap: balance;
+    transition: color var(--dur) var(--ease);
+    flex: 1;
+  }
+  .faq-mark {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    font-family: var(--f-serif); font-weight: 300;
+    font-size: 24px; line-height: 1;
+    color: var(--accent);
+    transition: transform var(--dur) var(--ease);
+    margin-top: 2px;
+  }
+  .faq-item[open] .faq-mark { transform: rotate(45deg); }
+  .faq-item p {
+    grid-column: 2; grid-row: 1;
+    font-size: 15px; line-height: 1.65; color: var(--fg-body);
+    margin: 0;
+    max-width: 62ch;
+  }
+  .faq-close {
+    margin-top: clamp(48px, 7vh, 80px);
+    padding-top: clamp(32px, 5vh, 48px);
+    text-align: center;
+    display: flex; flex-direction: column; gap: 24px;
+    align-items: center;
+  }
+  .faq-close p {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.55; color: var(--bd-ink);
+    margin: 0; max-width: 48ch;
+    text-wrap: balance;
+  }
+
+  @media (max-width: 900px) {
+    .sec-faq-head { grid-template-columns: 1fr; gap: 16px; }
+    .faq-item { grid-template-columns: 1fr; gap: 16px; padding: clamp(20px, 2.8vh, 28px) 0; }
+    .faq-item summary { grid-column: 1; grid-row: 1; }
+    .faq-item p { grid-column: 1; grid-row: 2; padding-bottom: 4px; }
+  }
+
+  /* ============ SECTION 09 — CONTACT ============ */
+  .sec-contact {
+    background: var(--bd-ink);
+    color: var(--bd-bone);
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .sec-contact-inner {
+    max-width: var(--col-max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 520px; gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+  .sec-contact .head .sec-label { color: var(--bd-brass-soft); }
+  .sec-contact .head .pre {
+    font-family: ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--bd-brass-soft); font-weight: 600;
+    margin-bottom: 20px; margin-top: 16px;
+  }
+  .sec-contact h2.display { color: #fff; }
+  .sec-contact .head p.sub {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 40;
+    font-weight: 320; font-size: clamp(16px, 1.3vw, 19px);
+    color: rgba(242,237,228,0.82); margin-top: 10px;
+    max-width: 42ch;
+  }
+  .cta-form {
+    background: var(--bd-bone);
+    color: var(--bd-ink);
+    padding: 36px 36px 32px;
+    display: grid; gap: 16px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  }
+  .cta-form h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: 22px; letter-spacing: -0.02em;
+    margin: 0 0 4px; text-transform: lowercase;
+  }
+  .cta-form .field { display: grid; gap: 6px; }
+  .cta-form label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+  }
+  .cta-form input, .cta-form select, .cta-form textarea {
+    font-family: var(--f-sans); font-size: 14px; color: var(--bd-ink);
+    padding: 10px 0;
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--rule);
+    outline: none; border-radius: 0;
+    transition: border-color var(--dur) var(--ease);
+  }
+  .cta-form input:focus, .cta-form select:focus, .cta-form textarea:focus {
+    border-bottom-color: var(--accent);
+  }
+  .cta-form textarea { resize: vertical; min-height: 72px; }
+  .cta-form .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cta-form button {
+    margin-top: 10px;
+    background: var(--accent); color: #fff;
+    border: 0; padding: 14px 20px;
+    font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 600;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background var(--dur) var(--ease);
+  }
+  .cta-form button:hover { background: color-mix(in oklab, var(--accent) 88%, #000); }
+  .cta-form button:disabled { opacity: 0.55; cursor: default; }
+  .cta-form .fine {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-muted); text-align: center; margin-top: 4px; font-weight: 500;
+  }
+  .cta-success {
+    background: var(--bd-bone); color: var(--bd-ink);
+    padding: 48px 40px; text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  }
+  .cta-success h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: 28px; letter-spacing: -0.02em;
+    margin: 0 0 12px; text-transform: lowercase;
+  }
+  .cta-success h3 .dot { color: var(--accent); }
+  .cta-success p {
+    font-size: 14px; line-height: 1.6; color: var(--fg-body);
+    margin: 0 auto; max-width: 38ch;
+  }
+
+  @media (max-width: 900px) {
+    .sec-contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .cta-form .fields-row { grid-template-columns: 1fr; }
+  }
+
+  /* ============ FOOTER ============ */
+  .foot {
+    background: var(--bd-ink); color: var(--bd-bone);
+    padding: clamp(56px, 8vh, 80px) var(--page-pad) 32px;
+  }
+  .foot-inner {
+    max-width: var(--col-max); margin: 0 auto;
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;
+    align-items: start;
+  }
+  .foot .wm img { height: 22px; }
+  .foot .pitch {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 30;
+    font-size: 17px; line-height: 1.45; margin-top: 20px;
+    max-width: 36ch; color: var(--bd-bone);
+    text-wrap: pretty;
+  }
+  .foot h4 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; margin: 0 0 18px; color: var(--bd-bone);
+  }
+  .foot ul {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 10px;
+    font-size: 13px; color: rgba(242,237,228,0.75);
+  }
+  .foot ul a {
+    color: inherit; text-decoration: none;
+    transition: color var(--dur) var(--ease);
+  }
+  .foot ul a:hover { color: var(--bd-bone); }
+  .foot hr {
+    border: 0; height: 1px;
+    background: rgba(242,237,228,0.14);
+    margin: 48px 0 24px;
+  }
+  .foot .fine {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(242,237,228,0.55);
+  }
+  .foot .socials { display: flex; gap: 20px; align-items: center; }
+  .foot .socials a {
+    color: rgba(242,237,228,0.75); text-decoration: none;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+    transition: color var(--dur) var(--ease);
+  }
+  .foot .socials a:hover { color: var(--bd-bone); }
+
+  @media (max-width: 900px) {
+    .foot-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+  @media (max-width: 520px) {
+    .foot-inner { grid-template-columns: 1fr; }
+  }
+
+  /* ============ RESPONSIVE NAV ============ */
+  @media (max-width: 720px) {
+    .nav-links a.nav-link { display: none; }
+    .nav { padding: 14px 20px; }
+    .nav .btn-red { padding: 10px 14px; font-size: 10px; letter-spacing: 0.14em; }
+    .nav img.nav-wm { height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav on-light" id="nav">
+  <a href="/" aria-label="BloxDot home" class="home-link">
+    <img class="nav-wm" src="/assets/bloxdot-logo-dark.svg" alt="BloxDot" width="110" height="18" decoding="async"/>
+  </a>
+  <nav class="nav-links">
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/projects">Work</a>
+    <a class="nav-link" href="/#process">Process</a>
+    <a class="nav-link" href="/#studio">Studio</a>
+    <a class="btn-red" href="#contact">Start a conversation</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ==================== 01 · HERO ==================== -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-prehead">
+        <span>01 · CORE SERVICE · ARCHITECTURE</span>
+        <span class="edition">LAHORE · DUBAI · BEYOND</span>
+      </div>
+
+      <div class="hero-head">
+        <h1>architectural design<span class="dot">.</span><br/>in lahore<span class="dot">.</span></h1>
+        <p class="byline" style="font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-muted); font-weight: 500; margin: 0;">Reviewed by <a href="/about" style="color:inherit; text-decoration:none">Mir Sohaib Sajid</a>, Principal Architect</p>
+        <p class="hero-sub">Ground-up design for homes, apartments, and commercial buildings. Site study to construction-ready drawings.</p>
+        <div class="hero-cta-row">
+          <a class="btn-red" href="#contact">Start a project &nbsp;→</a>
+          <a class="btn-ghost" href="/projects?filter=architecture" style="color: var(--bd-ink); border-color: var(--bd-ink);">See architecture projects &nbsp;→</a>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        LED BY <a href="/about" style="color:inherit;text-decoration:none">SOHAIB SAJID</a> · DHA PHASE 6, LAHORE
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img
+        class="hero-img"
+        src="/assets/img/architecture/hero@1x.webp"
+        srcset="/assets/img/architecture/hero@1x.webp 1200w, /assets/img/architecture/hero.webp 2000w"
+        sizes="(max-width: 900px) 100vw, 65vw"
+        width="2000" height="2667"
+        fetchpriority="high"
+        alt="BloxDot villa exterior, Lahore. Modernist facade with stone, concrete, and vertical wood slats."/>
+    </div>
+  </section>
+
+  <!-- ==================== 02 · FIVE PROJECT TYPES ==================== -->
+  <section class="sec-typology">
+    <div class="sec-typology-inner">
+      <div class="sec-typology-head">
+        <div class="sec-label">01 · What we design</div>
+        <div>
+          <h2 class="display">five project types<span class="dot">.</span></h2>
+          <p class="intro">Architecture at BloxDot covers ground-up design across residential and commercial. Sohaib leads design on every project regardless of type or scale.</p>
+        </div>
+      </div>
+
+      <div class="typology-grid">
+        <div class="typology-tile">
+          <div class="typology-thumb">
+            <img class="thumb-img" src="/assets/img/architecture/residential.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Residential architecture by BloxDot, Lahore."/>
+          </div>
+          <div class="typology-title">
+            <span class="num">01</span>
+            <h3>residential</h3>
+          </div>
+          <p>Villas, family homes, custom builds for plots ranging from 5 marla to 4 kanal. Full architectural set: site planning, elevations, plans, sections, details.</p>
+        </div>
+        <div class="typology-tile">
+          <div class="typology-thumb">
+            <img class="thumb-img" src="/assets/img/architecture/multi-unit.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Multi-unit residential architecture by BloxDot, twin-tower apartment building."/>
+          </div>
+          <div class="typology-title">
+            <span class="num">02</span>
+            <h3>multi-unit residential</h3>
+          </div>
+          <p>Apartment buildings and townhouses for developers and private owners. Up to ten floors, with structural and MEP through our engineering partners.</p>
+        </div>
+        <div class="typology-tile">
+          <div class="typology-thumb">
+            <img class="thumb-img" src="/assets/img/architecture/commercial.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Commercial architecture by BloxDot, office building shell-and-core."/>
+          </div>
+          <div class="typology-title">
+            <span class="num">03</span>
+            <h3>commercial</h3>
+          </div>
+          <p>Shell-and-core for office buildings, retail blocks, and mixed-use. Approval-grade drawings ready for permit submission and contractor handoff.</p>
+        </div>
+        <div class="typology-tile">
+          <div class="typology-thumb">
+            <img class="thumb-img" src="/assets/img/architecture/hospitality.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Hospitality architecture by BloxDot, restaurant or boutique hotel."/>
+          </div>
+          <div class="typology-title">
+            <span class="num">04</span>
+            <h3>hospitality</h3>
+          </div>
+          <p>Restaurants, cafes, boutique hotels. Concept architecture through to interior coordination, designed for the operational reality of the format.</p>
+        </div>
+        <div class="typology-tile">
+          <div class="typology-thumb">
+            <img class="thumb-img" src="/assets/img/architecture/renovation.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Renovation and retrofit architecture by BloxDot, existing building reworked."/>
+          </div>
+          <div class="typology-title">
+            <span class="num">05</span>
+            <h3>renovation and retrofit</h3>
+          </div>
+          <p>Existing buildings reworked for a new use, a new owner, or a new layout. Includes structural coordination and approval drawings for major modifications.</p>
+        </div>
+      </div>
+
+      <p class="typology-close">Not seeing your project type? Tell us about it on the first call.</p>
+    </div>
+  </section>
+
+  <!-- ==================== 03 · WHAT YOU GET ==================== -->
+  <section class="sec-deliverables">
+    <div class="sec-deliverables-inner">
+      <div class="sec-deliverables-head">
+        <div class="sec-label">02 · What you get</div>
+        <div>
+          <h2 class="display">the complete architectural set<span class="dot">.</span></h2>
+          <p class="intro">Every architecture engagement at BloxDot includes the same baseline deliverables, scaled to the project. Detail and depth increase with project scope. Nothing critical is left out, regardless of size.</p>
+        </div>
+      </div>
+
+      <div class="deliverables-list">
+        <div class="deliverables-row">
+          <h3>concept design</h3>
+          <p>Site analysis report. Massing studies. Two design directions presented together. Mood and material direction. One round of revisions included.</p>
+        </div>
+        <div class="deliverables-row">
+          <h3>schematic design</h3>
+          <p>Plans, elevations, sections at 1:100 scale. Refined material palette. Spatial layout locked. 3D massing visualization.</p>
+        </div>
+        <div class="deliverables-row">
+          <h3>design development</h3>
+          <p>Plans and sections at 1:50 scale. Construction details for key conditions. MEP coordination drawings prepared with our engineering partners. Specifications document.</p>
+        </div>
+        <div class="deliverables-row">
+          <h3>construction documents</h3>
+          <p>Full set at 1:50 and 1:20. Detail drawings for joinery, finishes, fixtures. Door and window schedules. BOQ-ready specifications. Approval submission set.</p>
+        </div>
+        <div class="deliverables-row">
+          <h3>handover package</h3>
+          <p>Final stamped drawings. Digital files in DWG and PDF. As-built coordination if BloxDot is also building.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 04 · HOW IT RUNS ==================== -->
+  <section class="sec-process" id="process">
+    <div class="sec-process-inner">
+      <div class="sec-process-head">
+        <div class="sec-label">03 · How it runs</div>
+        <div>
+          <h2 class="display">five phases, scaled to the project<span class="dot">.</span></h2>
+          <p class="intro">Project size sets the timeline. A villa runs longer than an apartment, a commercial shell longer than a renovation. The five phases below are constant. Depth and duration scale with scope.</p>
+        </div>
+      </div>
+
+      <div class="flow">
+        <article class="step">
+          <div class="node">01</div>
+          <span class="step-label">Phase</span>
+          <h3>brief &amp; site study</h3>
+          <p>Two-week phase. We walk the site, study the brief, return with a one-page direction document and timeline.</p>
+        </article>
+        <article class="step">
+          <div class="node">02</div>
+          <span class="step-label">Phase</span>
+          <h3>concept design</h3>
+          <p>Three-to-four-week phase. Two design directions, mood, materials, massing. The big decisions are made here.</p>
+        </article>
+        <article class="step">
+          <div class="node">03</div>
+          <span class="step-label">Phase</span>
+          <h3>schematic design</h3>
+          <p>Four-to-six-week phase. Plans, sections, elevations refined. Spatial layout locks. Material palette confirmed.</p>
+        </article>
+        <article class="step">
+          <div class="node">04</div>
+          <span class="step-label">Phase</span>
+          <h3>design development</h3>
+          <p>Six-to-ten-week phase. Construction-grade detailing. MEP coordination. Engineering partners brought in.</p>
+        </article>
+        <article class="step">
+          <div class="node">05</div>
+          <span class="step-label">Phase</span>
+          <h3>construction documents</h3>
+          <p>Six-to-eight-week phase. Full set ready to build from. Approval submission. BOQ-ready specifications.</p>
+        </article>
+      </div>
+
+      <p class="flow-note">Typical residential: four to six months end to end. Commercial: six to nine months. Renovation: two to four months. We confirm a project-specific timeline at sign-on.</p>
+    </div>
+  </section>
+
+  <!-- ==================== 05 · FEATURED ARCHITECTURE ==================== -->
+  <section class="sec-work" id="work">
+    <div class="sec-work-inner">
+      <div class="sec-work-head">
+        <div class="sec-label">04 · Featured architecture</div>
+        <div>
+          <h2 class="display">three projects, three scales<span class="dot">.</span></h2>
+          <p class="intro">A villa, a family estate, and a high-rise concept. Same studio, same principal.</p>
+        </div>
+      </div>
+
+      <div class="work-grid">
+
+        <a class="work-tile" href="/projects/greystone-villa">
+          <img
+            class="tile-img"
+            src="/assets/img/home/greystone@1x.webp"
+            srcset="/assets/img/home/greystone@1x.webp 600w, /assets/img/home/greystone.webp 1200w"
+            sizes="(max-width: 900px) 100vw, 33vw"
+            width="1200" height="1500"
+            loading="lazy" decoding="async"
+            alt="Greystone Villa exterior, symmetrical neoclassical villa, Lahore."/>
+          <div class="meta">
+            <div class="meta-row">
+              <span>Residential</span>
+              <span class="sep">·</span>
+              <span>Lahore</span>
+              <span class="sep">·</span>
+              <span>2025</span>
+              <span class="status status-completed">Completed</span>
+            </div>
+            <h3>greystone villa</h3>
+            <p>A bold symmetrical villa with natural stone tones and warm metal accents. Neoclassical language, modernist discipline.</p>
+            <span class="view">View Greystone Villa case study →</span>
+          </div>
+        </a>
+
+        <a class="work-tile" href="/projects/balkasar-estate">
+          <img
+            class="tile-img"
+            src="/assets/img/home/balkasar@1x.webp"
+            srcset="/assets/img/home/balkasar@1x.webp 600w, /assets/img/home/balkasar.webp 1200w"
+            sizes="(max-width: 900px) 100vw, 33vw"
+            width="1200" height="1500"
+            loading="lazy" decoding="async"
+            alt="Balkasar Estate concept rendering, Neo-Classical residential estate on 11 kanal, Chakwal."/>
+          <div class="meta">
+            <div class="meta-row">
+              <span>Residential</span>
+              <span class="sep">·</span>
+              <span>Chakwal</span>
+              <span class="sep">·</span>
+              <span>2026</span>
+              <span class="status status-concept">Concept</span>
+            </div>
+            <h3>balkasar estate</h3>
+            <p>A Neo-Classical residential estate on 11 kanal, set within a working agricultural landscape, north of Lahore.</p>
+            <span class="view">View Balkasar Estate concept →</span>
+          </div>
+        </a>
+
+        <a class="work-tile" href="/projects/z-apartments">
+          <img
+            class="tile-img"
+            src="/assets/img/home/z-apartments@1x.webp"
+            srcset="/assets/img/home/z-apartments@1x.webp 600w, /assets/img/home/z-apartments.webp 1200w"
+            sizes="(max-width: 900px) 100vw, 33vw"
+            width="1200" height="1500"
+            loading="lazy" decoding="async"
+            alt="Z Apartments rendering, twin residential towers concept, Islamabad skyline."/>
+          <div class="meta">
+            <div class="meta-row">
+              <span>Multi-unit residential</span>
+              <span class="sep">·</span>
+              <span>Islamabad</span>
+              <span class="sep">·</span>
+              <span>2025</span>
+              <span class="status status-concept">Concept</span>
+            </div>
+            <h3>z apartments</h3>
+            <p>A high-rise residential concept for Islamabad's evolving skyline. Twin towers, layered massing, dense urban dignity.</p>
+            <span class="view">View Z Apartments concept →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="work-closing">
+        <p>Not all our architecture work is shown above. See the full set on the projects page.</p>
+        <a class="all" href="/projects?filter=architecture">See all architecture projects &nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 06 · THE STUDIO APPROACH (drum solo) ==================== -->
+  <section class="sec-standard">
+    <div class="sec-standard-inner">
+      <div class="label">The BloxDot approach</div>
+      <div>
+        <h2>the principal draws every project<span style="color:#fff">.</span></h2>
+        <p class="body">Sohaib leads design on every architecture project from sign-on to handover. He runs the brief, sets the direction, reviews every drawing before it leaves the studio. Clients work with the principal, not a junior draftsman handed the project after the contract is signed.</p>
+        <a class="cta-ghost" href="#contact">Start a conversation &nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 07 · DESIGN ONLY OR DESIGN AND BUILD ==================== -->
+  <section class="sec-engage">
+    <div class="sec-engage-inner">
+      <div class="sec-engage-head">
+        <div class="sec-label">05 · Design only, build, or supervise</div>
+        <div>
+          <h2 class="display">three ways to engage us<span class="dot">.</span></h2>
+        </div>
+      </div>
+
+      <div class="engage-body">
+        <div class="body">
+          <p>Most architecture clients pick one of three paths. Design only, where we hand over a complete drawing set and you take it to a contractor of your choice. Design and build, where BloxDot is the contracted general contractor under one agreement. Design and supervise, where you hire a contractor of your choice and we oversee the build to protect the design.</p>
+          <p>For design-only engagements, our drawings are detailed enough to build from without coming back for clarifications. For design and build, the studio that drew the project is the team running the build. For design and supervise, the architect who drew it watches it get built, without taking over construction.</p>
+        </div>
+
+        <div class="engage-cards">
+          <a class="engage-card" href="/construction">
+            <p class="q">Want BloxDot to build it too?</p>
+            <span class="link">See /construction &nbsp;→</span>
+          </a>
+          <a class="engage-card" href="/supervision">
+            <p class="q">Have a contractor, want our oversight?</p>
+            <span class="link">See /supervision &nbsp;→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 08 · FAQ ==================== -->
+  <section class="sec-faq" id="faq">
+    <div class="sec-faq-inner">
+      <div class="sec-faq-head">
+        <div class="sec-label">06 · Questions buyers ask</div>
+        <div>
+          <h2 class="display">what comes up on most first calls<span class="dot">.</span></h2>
+          <p class="intro">The architecture questions we hear most often, answered directly.</p>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><h3>How long does an architectural design take in Pakistan?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>A residential project takes four to six months from signed brief to construction-ready drawings. Commercial projects run six to nine months. Renovations are faster, two to four months. The timeline depends on project scale, approval requirements in your jurisdiction, and how quickly the client returns decisions on concept and materials.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What does an architect deliver in Pakistan?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>A complete architectural set. That means site plan, floor plans, elevations, sections, and detail drawings at the scales required for construction. It includes structural coordination with engineering partners, MEP coordination, door and window schedules, and a specifications document detailed enough for a contractor to price from. Anything less is incomplete.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What makes BloxDot different as an architect in Lahore?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>Sohaib leads design on every project personally, from concept through construction documents. The same principal who takes the brief is the principal who reviews the final drawing set. We also offer <a href="/construction">construction</a> as a core service, which means clients can engage us for design only or for design and construction together under one contract.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Do I need an architect if I already have a contractor?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>Yes for any project that needs permit approval, structural modifications, or meaningful spatial changes. A <a href="/construction">contractor</a> builds. An architect decides what gets built, how it works spatially, and how the structure handles loads, light, and movement. Without proper architectural drawings, contractors estimate from incomplete information, which is where most cost overruns and design failures originate.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Can I hire BloxDot for design only?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>Yes. Most of our architecture engagements end at the drawing set. We hand over a tender-ready package with structural and MEP coordination already resolved, and the client appoints a contractor of their choice. The set is detailed enough that a competent contractor can price and build from it without coming back for clarifications.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>What does architectural design cost in Pakistan?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>Architecture fees scale with built-up area, structural complexity, and the level of detailing a project demands. Residential villas typically run as a percentage of construction cost. Renovations and smaller homes are quoted as fixed fees. Commercial projects are scoped against a defined deliverable list. We send a written fee proposal after the first call. No blind estimates over the phone.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Do you handle approvals and permits?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>We prepare the approval drawing set to the standards required by your local authority. The submission and follow-up with the authority is typically handled by the client or a permit consultant, with us coordinating closely on any technical clarifications. For complex projects, we can recommend permit consultants we have worked with before.</p>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Can BloxDot work on a site outside Lahore?</h3><span class="faq-mark" aria-hidden="true">+</span></summary>
+          <p>Yes. Architecture travels well because most of the work is studio-based. We have run projects in Karachi, Islamabad, and Dubai from our Lahore studio. Site visits are scheduled around concept sign-off, drawing issue, and key construction milestones rather than a weekly cadence, so the travel cost stays proportional to the scope.</p>
+        </details>
+      </div>
+
+      <div class="faq-close">
+        <p>Other questions? Start a conversation and we will answer them on the first call.</p>
+        <a class="btn-red" href="#contact">Start a conversation &nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 09 · START A CONVERSATION ==================== -->
+  <section class="sec-contact" id="contact">
+    <div class="sec-contact-inner">
+
+      <div class="head">
+        <div class="sec-label">07 · Start a conversation</div>
+        <div class="pre">REPLIES WITHIN 24 HOURS</div>
+        <h2 class="display">tell us about your architecture project<span class="dot">.</span></h2>
+        <p class="sub">A short message is enough. Sohaib reads every one.</p>
+      </div>
+
+      <form class="cta-form" id="leadForm" novalidate>
+        <h3>start a conversation<span class="dot">.</span></h3>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required/>
+        </div>
+        <div class="fields-row">
+          <div class="field">
+            <label for="f-phone">WhatsApp / Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required/>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required/>
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field">
+            <label for="f-city">City</label>
+            <select id="f-city" name="city">
+              <option>Lahore</option>
+              <option>Karachi</option>
+              <option>Islamabad</option>
+              <option>Dubai</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-ptype">Project type</label>
+            <select id="f-ptype" name="projectType">
+              <option>Residential</option>
+              <option>Multi-unit residential</option>
+              <option>Commercial</option>
+              <option>Hospitality</option>
+              <option>Renovation</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-budget">Budget</label>
+          <input id="f-budget" name="budget" type="text" placeholder="A rough range, or tell us the constraint"/>
+        </div>
+        <div class="field">
+          <label for="f-scope">Tell us about the project</label>
+          <textarea id="f-scope" name="scope" required minlength="10"></textarea>
+        </div>
+        <button type="submit" id="f-submit">Start a conversation &nbsp;→</button>
+        <div class="fine" id="f-fine">We reply within 24 hours. No obligation.</div>
+      </form>
+
+      <div class="cta-success" id="leadSuccess" hidden>
+        <h3>thanks<span class="dot">.</span></h3>
+        <p>We'll reach out within 24 hours on WhatsApp or email, whichever you prefer.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <div class="wm"><a href="/" aria-label="BloxDot home"><img src="/assets/bloxdot-logo-light.svg" alt="BloxDot" width="140" height="22" loading="lazy" decoding="async"/></a></div>
+      <p class="pitch">Architecture, interiors, and construction.<br/>One team in Lahore. Projects across Pakistan and the Gulf.</p>
+    </div>
+    <div>
+      <h4>This site</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/projects">Work</a></li>
+        <li><a href="/#process">Process</a></li>
+        <li><a href="#contact">Start a conversation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/architecture">Architecture</a></li>
+        <li><a href="/interior-design">Interior design</a></li>
+        <li><a href="/construction">Construction</a></li>
+        <li><a href="/supervision">Supervision</a></li>
+        <li><a href="/corporate">Office fitout</a></li>
+        <li><a href="/furniture">Furniture</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+923000228345">+92 300 0228345</a></li>
+        <li><a href="mailto:hello@bloxdot.com">hello@bloxdot.com</a></li>
+        <li>CP-93 Fairways Raya,<br/>DHA Phase 6, Lahore</li>
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div class="foot-inner fine" style="display:flex; justify-content:center; padding-bottom:10px; opacity:0.7;">
+    <span>Page updated April 2026 · Built by <a href="https://hybriddot.com" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">HybridDot</a></span>
+  </div>
+  <div class="foot-inner fine" style="display:flex;">
+    <span>© 2026 BloxDot · Lahore, since 2023 · A HybridDot practice</span>
+    <span class="socials">
+      <a href="https://www.linkedin.com/company/blox-dot/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/bloxdot_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/people/BloxDot/61573063713721/" target="_blank" rel="noopener">Facebook</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  function updateNav() {
+    if (window.scrollY > 40) nav.classList.add('on-light');
+    else nav.classList.remove('on-light');
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  const UTM_STORAGE_KEY = 'bd_utm';
+  (function captureUtms() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fresh = {};
+      let hasFresh = false;
+      UTM_KEYS.forEach(k => {
+        const v = params.get(k);
+        if (v) { fresh[k] = v.slice(0, 200); hasFresh = true; }
+      });
+      if (hasFresh) sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(fresh));
+    } catch (_) {}
+  })();
+  function getStoredUtms() {
+    try {
+      const raw = sessionStorage.getItem(UTM_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_) { return {}; }
+  }
+
+  const form = document.getElementById('leadForm');
+  const success = document.getElementById('leadSuccess');
+  if (form) {
+    const submitBtn = document.getElementById('f-submit');
+    const fine = document.getElementById('f-fine');
+    const originalLabel = submitBtn.textContent;
+
+    function setError(msg) {
+      fine.textContent = msg;
+      fine.style.color = 'var(--accent)';
+    }
+    function resetError() {
+      fine.textContent = 'We reply within 24 hours. No obligation.';
+      fine.style.color = '';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resetError();
+
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const email = form.email.value.trim();
+      const city = form.city.value;
+      const projectType = form.projectType.value;
+      const budget = form.budget.value.trim();
+      const scope = form.scope.value.trim();
+
+      if (name.length < 2) return setError('Please enter your name.');
+      if (phone.replace(/\D/g, '').length < 7) return setError('Please enter a valid phone number.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError('Please enter a valid email.');
+      if (scope.length < 10) return setError('Tell us a little more about what you are building.');
+
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const payload = Object.assign({
+        name, phone, email,
+        city,
+        projectType,
+        budget,
+        projectBrief: scope,
+        landing: 'architecture'
+      }, getStoredUtms());
+
+      try {
+        const r = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok) {
+          setError('Something went wrong. Please try again or email hello@bloxdot.com.');
+          submitBtn.textContent = originalLabel;
+          submitBtn.disabled = false;
+          return;
+        }
+        try { if (window.fbq) fbq('track', 'Lead'); } catch (_) {}
+        try {
+          if (window.gtag) gtag('event', 'generate_lead', {
+            landing: 'architecture',
+            method: 'architecture_form'
+          });
+        } catch (_) {}
+        form.hidden = true;
+        success.hidden = false;
+        try { success.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}
+      } catch (err) {
+        setError('Network error. Please try again.');
+        submitBtn.textContent = originalLabel;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

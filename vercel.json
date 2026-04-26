@@ -1,0 +1,53 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/our-services", "destination": "/", "permanent": true },
+    { "source": "/our-services/architecture", "destination": "/architecture", "permanent": true },
+    { "source": "/our-services/interior-design", "destination": "/interior-design", "permanent": true },
+    { "source": "/our-services/construction", "destination": "/construction", "permanent": true },
+    { "source": "/our-services/on-site-supervision", "destination": "/supervision", "permanent": true },
+    { "source": "/our-services/bespoke-furniture", "destination": "/furniture", "permanent": true },
+    { "source": "/contact", "destination": "/#contact", "permanent": true },
+    { "source": "/projects/grid-house-2", "destination": "/projects/the-grid-house", "permanent": true },
+    { "source": "/our-projects/global-bloom", "destination": "/projects/global-bloom", "permanent": true },
+    { "source": "/our-projects/greystone-villa", "destination": "/projects/greystone-villa", "permanent": true },
+    { "source": "/our-projects/hybrid-dot-creative", "destination": "/projects/hybriddot-creative-agency", "permanent": true },
+    { "source": "/our-projects/the-grid-house", "destination": "/projects/the-grid-house", "permanent": true },
+    { "source": "/our-projects/topspot-media", "destination": "/projects/topspot-media", "permanent": true },
+    { "source": "/our-projects/z-apartments", "destination": "/projects/z-apartments", "permanent": true },
+    { "source": "/our-projects/:slug*", "destination": "/projects", "permanent": true },
+    { "source": "/our-projects", "destination": "/projects", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/corporate/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/tokens.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+      ]
+    }
+  ]
+}

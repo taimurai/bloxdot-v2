@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BloxDot — Office Design &amp; Fitout · Lahore, Karachi, Islamabad</title>
+<link rel="stylesheet" href="tokens.css"/>
+<style>
+  :root {
+    --accent: var(--bd-crimson);
+  }
+  html { scroll-behavior: smooth; }
+  body { overflow-x: hidden; }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+    padding: 18px var(--page-pad);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.on-dark { color: var(--bd-bone); }
+  .nav.on-dark .nav-wm { filter: invert(0); }
+  .nav.on-light { background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom-color: var(--rule); }
+  .nav img.nav-wm { height: 18px; display: block; transition: filter var(--dur) var(--ease); }
+  .nav.on-dark  img.nav-wm { content: url('assets/bloxdot-logo-light.svg'); }
+  .nav.on-light img.nav-wm { content: url('assets/bloxdot-logo-dark.svg'); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a.nav-link {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+    color: inherit; text-decoration: none; opacity: 0.72; transition: opacity var(--dur) var(--ease);
+  }
+  .nav-links a.nav-link:hover { opacity: 1; }
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 12px 20px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+    text-decoration: none; border: 0; cursor: pointer;
+    transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+  }
+  .btn-red:hover { transform: translateY(-1px); background: color-mix(in oklab, var(--accent) 88%, #000); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 20px;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+    color: inherit; text-decoration: none; border: 1px solid currentColor; background: transparent; cursor: pointer;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .btn-ghost:hover { background: currentColor; color: var(--bd-ink); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative; min-height: 100vh;
+    color: var(--bd-bone);
+    overflow: hidden;
+    display: grid; grid-template-columns: 1fr;
+  }
+  .hero-media { position: absolute; inset: 0; }
+  .hero-media .slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1200ms var(--ease);
+  }
+  .hero-media .slide.active { opacity: 1; }
+  .hero-media .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.55) 100%),
+      linear-gradient(180deg, rgba(10,10,10,0.35), rgba(10,10,10,0.15) 40%, rgba(10,10,10,0.75));
+  }
+  .hero.hero-light .hero-media .scrim {
+    background:
+      linear-gradient(90deg, rgba(242,237,228,0.6) 0%, rgba(242,237,228,0.1) 60%, rgba(18,18,18,0.35) 100%);
+  }
+  .hero.hero-light { color: var(--bd-ink); }
+
+  .hero-inner {
+    position: relative; z-index: 2;
+    min-height: 100vh;
+    padding: 140px var(--page-pad) 80px;
+    display: grid; grid-template-rows: auto 1fr auto;
+    gap: 40px;
+  }
+  .hero-top {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.72;
+  }
+  .hero-top .dots { display: flex; gap: 10px; }
+  .hero-top .dots button {
+    width: 8px; height: 8px; border-radius: 999px; background: currentColor; opacity: 0.35;
+    border: 0; padding: 0; cursor: pointer; transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .hero-top .dots button.active { opacity: 1; transform: scale(1.2); }
+
+  .hero-body {
+    display: grid; grid-template-columns: 1fr minmax(520px, 640px);
+    align-items: end; gap: 32px;
+  }
+  .hero-prehead {
+    grid-column: 2 / span 1;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600;
+    color: var(--bd-brass-soft);
+    padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.22);
+    margin-bottom: 28px;
+  }
+  .hero.hero-light .hero-prehead { color: var(--bd-brass); border-bottom-color: var(--rule); }
+  .hero-headline {
+    grid-column: 2 / span 1;
+    font-family: var(--f-serif);
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280;
+    font-size: clamp(44px, 5.4vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
+    color: inherit;
+    text-wrap: pretty;
+  }
+  .hero-headline em { font-style: italic; color: var(--bd-brass-soft); font-weight: 280; }
+  .hero-headline .dot { color: var(--accent); }
+  .hero-sub {
+    grid-column: 2 / span 1;
+    font-size: 15px; line-height: 1.65; max-width: 52ch;
+    color: inherit; opacity: 0.82;
+    margin: 0 0 32px;
+  }
+  .hero-cta-row { grid-column: 2 / span 1; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .hero-cta-note { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; }
+
+  .hero-bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7;
+  }
+  .hero-scroll { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .hero-scroll .chev { width: 1px; height: 40px; background: currentColor; position: relative; }
+  .hero-scroll .chev::after { content: ''; position: absolute; bottom: 0; left: -3px; width: 7px; height: 7px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); }
+
+  /* ===== Section shell shared ===== */
+  .sec { padding: clamp(100px, 14vh, 180px) var(--page-pad); position: relative; }
+  .sec-inner { max-width: var(--col-max); margin: 0 auto; }
+  .sec-head {
+    display: grid; grid-template-columns: 180px 1fr 1fr; gap: 32px;
+    padding-bottom: 28px; margin-bottom: clamp(48px, 7vh, 88px);
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .sec-num { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--fg-muted); padding-top: 6px; }
+  .sec-head h2 {
+    margin: 0;
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280; font-size: clamp(36px, 4.6vw, 68px);
+    line-height: 1.02; letter-spacing: -0.03em; color: var(--fg); text-transform: lowercase;
+    text-wrap: balance;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--bd-clay); font-weight: 280; }
+  .sec-head h2 .dot { color: var(--accent); }
+  .sec-head .intro { font-size: 14px; line-height: 1.65; color: var(--fg-body); max-width: 42ch; align-self: end; }
+
+  /* ===== PROBLEM (graphite) ===== */
+  .sec-problem { background: var(--bd-graphite); color: var(--bd-bone); border-top: 0; }
+  .sec-problem .sec-head { border-bottom-color: rgba(242,237,228,0.18); }
+  .sec-problem .sec-num { color: var(--bd-brass-soft); }
+  .sec-problem .sec-head h2 { color: var(--bd-bone); }
+  .sec-problem .sec-head .intro { color: rgba(242,237,228,0.75); }
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(32px, 4vw, 80px); }
+  .problem-card { display: grid; grid-template-rows: auto auto 1fr; gap: 20px; padding-top: 24px; border-top: 1px solid rgba(242,237,228,0.22); }
+  .problem-card .p-icon { width: 52px; height: 52px; color: var(--bd-bone); opacity: 0.95; }
+  .problem-card h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: clamp(22px, 2vw, 30px);
+    line-height: 1.15; letter-spacing: -0.02em; margin: 0; color: var(--bd-bone);
+    text-wrap: balance;
+  }
+  .problem-card p { font-size: 14px; line-height: 1.65; color: rgba(242,237,228,0.78); max-width: 36ch; margin: 0; }
+
+  /* ===== ANSWER (bone) ===== */
+  .sec-answer { background: var(--bd-bone); color: var(--fg); }
+  .answer-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 56px) clamp(40px, 5vw, 80px);
+    margin-bottom: clamp(48px, 8vh, 96px);
+  }
+  .answer-card { display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: start; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .answer-card .n {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: 32px; color: var(--accent); line-height: 1;
+  }
+  .answer-card h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 300; font-size: clamp(22px, 2.1vw, 30px);
+    line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 12px; color: var(--fg);
+    text-transform: lowercase; text-wrap: balance;
+  }
+  .answer-card h3 em { font-style: italic; color: var(--bd-clay); }
+  .answer-card p { font-size: 14px; line-height: 1.65; color: var(--fg-body); max-width: 36ch; margin: 0; }
+
+  .team-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: clamp(56px, 8vh, 96px); }
+  .team-strip .cell { aspect-ratio: 1/1; background-size: cover; background-position: center; position: relative; overflow: hidden; }
+  .team-strip .cell::after {
+    content: attr(data-label);
+    position: absolute; left: 20px; bottom: 18px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bd-bone);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+
+  /* ===== RISK REVERSAL (crimson) ===== */
+  .risk {
+    background: var(--accent); color: #fff;
+    padding: clamp(72px, 10vh, 120px) var(--page-pad);
+    display: grid; grid-template-columns: 200px 1fr; gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+  }
+  .risk .label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.78); padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.5); }
+  .risk .copy {}
+  .risk h2 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 300; font-size: clamp(40px, 5.2vw, 76px);
+    line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 28px; color: #fff; text-transform: lowercase;
+    text-wrap: balance;
+  }
+  .risk h2 em { font-style: italic; }
+  .risk p { font-size: 16px; line-height: 1.55; max-width: 64ch; margin: 0 0 14px; color: rgba(255,255,255,0.92); }
+  .risk .tag { margin-top: 24px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+
+  /* ===== CAPABILITIES (plaster, 4×2 tiles) ===== */
+  .sec-capabilities { background: var(--bd-plaster); color: var(--fg); }
+  .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .cap-tile {
+    position: relative; aspect-ratio: 4/5;
+    background-size: cover; background-position: center;
+    overflow: hidden; color: var(--bd-bone);
+    transition: transform 600ms var(--ease);
+  }
+  .cap-tile::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(18,18,18,0) 40%, rgba(18,18,18,0.75) 100%);
+  }
+  .cap-tile .label {
+    position: absolute; left: 20px; right: 20px; bottom: 22px; z-index: 2;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  }
+  .cap-tile .label .n { font-size: 10px; letter-spacing: 0.22em; opacity: 0.72; font-weight: 600; }
+  .cap-tile .label .t {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: clamp(18px, 1.6vw, 24px); line-height: 1.1; letter-spacing: -0.015em;
+    text-transform: lowercase; text-align: right;
+  }
+
+  /* ===== PROJECTS ===== */
+  .proj-section { padding: 0; }
+  .proj-section + .proj-section { border-top: 0; }
+  .proj-bg-ink     { background: var(--bd-ink); color: var(--bd-bone); }
+  .proj-bg-bone    { background: var(--bd-bone); color: var(--fg); }
+  .proj-bg-plaster { background: var(--bd-plaster); color: var(--fg); }
+
+  .proj-meta-bar {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: clamp(24px, 4vw, 80px);
+    padding: 28px var(--page-pad);
+    border-bottom: 1px solid currentColor;
+    border-bottom-color: color-mix(in oklab, currentColor 22%, transparent);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    align-items: center;
+  }
+  .proj-meta-bar .sticky-label { font-weight: 600; opacity: 0.7; }
+  .proj-meta-bar .title-row { display: flex; gap: clamp(24px, 4vw, 56px); justify-content: center; }
+  .proj-meta-bar .title-row .k { opacity: 0.55; margin-right: 8px; }
+  .proj-meta-bar .title-row strong { font-weight: 600; letter-spacing: 0.14em; }
+  .proj-meta-bar .idx { opacity: 0.7; font-weight: 600; }
+
+  .proj-hero-wide {
+    width: 100%; aspect-ratio: 21/9; background-size: cover; background-position: center;
+    position: relative;
+  }
+  .proj-hero-wide.tall { aspect-ratio: 16/9; }
+
+  .proj-split {
+    display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 96px);
+    padding: clamp(72px, 10vh, 128px) var(--page-pad);
+    align-items: start;
+  }
+  .proj-summary .proj-num { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; opacity: 0.75; }
+  .proj-summary h2 {
+    margin: 0 0 24px;
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280; font-size: clamp(44px, 5vw, 80px);
+    line-height: 0.98; letter-spacing: -0.03em; text-transform: lowercase;
+    text-wrap: balance;
+  }
+  .proj-summary h2 em { font-style: italic; color: var(--bd-brass-soft); }
+  .proj-bg-bone .proj-summary h2 em, .proj-bg-plaster .proj-summary h2 em { color: var(--bd-brass); }
+  .proj-summary h2 .dot { color: var(--accent); }
+  .proj-summary p { font-size: 15px; line-height: 1.7; max-width: 46ch; margin: 0 0 18px; opacity: 0.88; }
+  .proj-summary p.lead { font-family: var(--f-serif); font-variation-settings: "opsz" 30, "SOFT" 50; font-size: 20px; line-height: 1.45; opacity: 1; margin-bottom: 24px; }
+
+  .proj-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid; border-color: color-mix(in oklab, currentColor 22%, transparent);
+    border-bottom: 1px solid; border-bottom-color: color-mix(in oklab, currentColor 22%, transparent);
+    margin-top: 16px;
+  }
+  .proj-stats .stat { padding: 20px 18px 22px; border-left: 1px solid; border-color: color-mix(in oklab, currentColor 22%, transparent); }
+  .proj-stats .stat:first-child { border-left: 0; }
+  .proj-stats .stat .k { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.6; margin-bottom: 10px; }
+  .proj-stats .stat .v {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 280; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: -0.02em; line-height: 1;
+  }
+  .proj-stats .stat .v .u { font-size: 13px; letter-spacing: 0.08em; opacity: 0.65; margin-left: 4px; font-family: var(--f-sans); font-weight: 500; }
+
+  /* Editorial asymmetric grid — 4 images */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    grid-template-rows: auto auto auto;
+    gap: 4px;
+    padding: 0 var(--page-pad) clamp(60px, 9vh, 120px);
+  }
+  .proj-grid .g-a { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: 2/3; }
+  .proj-grid .g-b { grid-column: 2; grid-row: 1; aspect-ratio: 1/1; }
+  .proj-grid .g-c { grid-column: 2; grid-row: 2; aspect-ratio: 1/1; }
+  .proj-grid .g-d { grid-column: 1 / span 2; grid-row: 3; aspect-ratio: 21/9; }
+  .proj-grid .g { background-size: cover; background-position: center; position: relative; cursor: zoom-in; }
+  .proj-grid .g::after {
+    content: attr(data-label);
+    position: absolute; left: 16px; bottom: 14px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #fff;
+    opacity: 0; transition: opacity var(--dur) var(--ease);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+  .proj-grid .g:hover::after { opacity: 1; }
+
+  /* ===== RENDER VS REAL (slider) ===== */
+  .rvr {
+    padding: clamp(60px, 10vh, 120px) var(--page-pad);
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+    border-top: 1px solid; border-color: color-mix(in oklab, currentColor 22%, transparent);
+  }
+  .rvr .rvr-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; opacity: 0.75; padding-top: 6px; border-top: 1px solid currentColor; border-top-color: color-mix(in oklab, currentColor 40%, transparent); }
+  .rvr .rvr-body h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 280; font-size: clamp(28px, 3.2vw, 44px); letter-spacing: -0.02em; line-height: 1.05;
+    margin: 0 0 24px; text-transform: lowercase;
+  }
+  .rvr .rvr-body h3 em { font-style: italic; color: var(--bd-brass-soft); }
+  .rvr .rvr-body .rvr-caption { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-top: 16px; text-align: center; }
+
+  .compare {
+    position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; user-select: none;
+    background: #111; box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+  }
+  .compare .layer { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .compare .layer.top { clip-path: inset(0 50% 0 0); }
+  .compare .tag {
+    position: absolute; top: 20px; padding: 8px 14px;
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700;
+    background: rgba(18,18,18,0.7); color: #fff; backdrop-filter: blur(6px);
+  }
+  .compare .tag.proposed { left: 20px; }
+  .compare .tag.delivered { right: 20px; }
+  .compare .handle {
+    position: absolute; top: 0; bottom: 0; left: 50%;
+    width: 2px; background: #fff; transform: translateX(-1px);
+    cursor: ew-resize; z-index: 3;
+  }
+  .compare .handle::before {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 44px; height: 44px; border-radius: 999px; background: #fff; transform: translate(-50%, -50%);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .compare .handle::after {
+    content: '⇆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: var(--bd-ink); font-size: 16px; font-weight: 800; z-index: 2;
+  }
+
+  /* Hover-reveal variant */
+  .compare.mode-hover .layer.top { clip-path: inset(0 0 0 0); transition: opacity 500ms var(--ease); }
+  .compare.mode-hover:hover .layer.top { opacity: 0; }
+  .compare.mode-hover .handle { display: none; }
+  .compare.mode-hover .tag.delivered { opacity: 0; transition: opacity 500ms var(--ease); }
+  .compare.mode-hover:hover .tag.delivered { opacity: 1; }
+  .compare.mode-hover:hover .tag.proposed { opacity: 0; }
+
+  /* Static side-by-side variant */
+  .compare.mode-static { aspect-ratio: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: transparent; }
+  .compare.mode-static .layer { position: relative; aspect-ratio: 4/5; clip-path: none !important; }
+  .compare.mode-static .handle { display: none; }
+  .compare.mode-static .tag { position: absolute; }
+
+  .proj-footer {
+    padding: 20px var(--page-pad) clamp(60px, 8vh, 100px);
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid; border-color: color-mix(in oklab, currentColor 22%, transparent);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .proj-footer .view-full {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: inherit; text-decoration: none; font-weight: 600;
+    padding: 8px 0; border-bottom: 1px solid currentColor;
+    transition: gap var(--dur) var(--ease);
+  }
+  .proj-footer .view-full:hover { gap: 20px; }
+
+  /* ===== PROCESS ===== */
+  .sec-process { background: var(--bd-bone-soft); color: var(--fg); }
+  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+  .process-step {
+    display: grid; grid-template-rows: auto auto 1fr;
+    background: var(--bd-bone);
+  }
+  .process-step .thumb { aspect-ratio: 1/1; background-size: cover; background-position: center; }
+  .process-step .meta { padding: 20px 20px 4px; display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-muted); }
+  .process-step .meta .num { color: var(--accent); font-family: var(--f-serif); font-size: 15px; letter-spacing: 0; }
+  .process-step h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 300; font-size: 22px; letter-spacing: -0.02em; line-height: 1.1;
+    margin: 8px 20px 12px; text-transform: lowercase; color: var(--fg);
+  }
+  .process-step p { font-size: 13px; line-height: 1.55; color: var(--fg-body); margin: 0 20px 24px; max-width: none; }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta {
+    position: relative; min-height: 80vh;
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&auto=format&fit=crop') center/cover;
+    color: var(--bd-bone);
+    display: grid; place-items: center;
+    padding: clamp(80px, 12vh, 140px) var(--page-pad);
+  }
+  .final-cta::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.55), rgba(10,10,10,0.75)); }
+  .final-cta-inner { position: relative; z-index: 2; max-width: 1000px; text-align: center; }
+  .final-cta .pre { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600; color: var(--bd-brass-soft); margin-bottom: 28px; }
+  .final-cta h2 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 260; font-size: clamp(44px, 5.6vw, 88px);
+    line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 24px; text-wrap: balance;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--bd-brass-soft); }
+  .final-cta h2 .dot { color: var(--accent); }
+  .final-cta p { font-size: 16px; line-height: 1.65; max-width: 62ch; margin: 0 auto 40px; color: rgba(242,237,228,0.88); }
+  .final-cta .cta-row { display: inline-flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+
+  /* ===== FOOTER ===== */
+  .foot { background: var(--bd-ink); color: var(--bd-bone); padding: clamp(64px, 10vh, 120px) var(--page-pad) 40px; }
+  .foot-inner { max-width: var(--col-max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; align-items: start; }
+  .foot .wm img { height: 22px; }
+  .foot .pitch { font-family: var(--f-serif); font-variation-settings: "opsz" 60, "SOFT" 30; font-size: 22px; line-height: 1.35; margin-top: 24px; max-width: 32ch; color: var(--bd-bone); }
+  .foot h4 { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin: 0 0 18px; color: var(--bd-bone); }
+  .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 13px; color: rgba(242,237,228,0.75); }
+  .foot ul a { color: inherit; text-decoration: none; transition: color var(--dur) var(--ease); }
+  .foot ul a:hover { color: var(--bd-bone); }
+  .foot hr { border: 0; height: 1px; background: rgba(242,237,228,0.14); margin: 64px 0 24px; }
+  .foot .fine { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,237,228,0.55); }
+
+  /* ===== LIGHTBOX ===== */
+  .lb {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(10,10,10,0.96); color: var(--bd-bone);
+    display: none; grid-template-rows: auto 1fr auto;
+    padding: 20px var(--page-pad);
+  }
+  .lb.open { display: grid; }
+  .lb-top { display: flex; justify-content: space-between; align-items: center; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .lb-top .close { background: transparent; border: 0; color: inherit; font-size: 24px; cursor: pointer; line-height: 1; padding: 8px; }
+  .lb-stage { display: grid; place-items: center; position: relative; overflow: hidden; }
+  .lb-stage img { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; display: block; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; display: grid; place-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); color: #fff; cursor: pointer; font-size: 20px; }
+  .lb-nav.prev { left: 0; }
+  .lb-nav.next { right: 0; }
+  .lb-bot { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 16px; border-top: 1px solid rgba(242,237,228,0.16); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75; }
+  .lb-thumbs { display: flex; gap: 6px; overflow-x: auto; max-width: 60%; }
+  .lb-thumbs .t { width: 52px; height: 36px; background-size: cover; background-position: center; opacity: 0.5; cursor: pointer; flex-shrink: 0; transition: opacity var(--dur) var(--ease); border: 1px solid transparent; }
+  .lb-thumbs .t.active { opacity: 1; border-color: #fff; }
+
+  /* ===== TWEAKS PANEL ===== */
+  .tweaks {
+    position: fixed; right: 24px; bottom: 24px; z-index: 90;
+    background: var(--bd-ink); color: var(--bd-bone);
+    width: 280px; padding: 18px 18px 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    display: none; font-family: var(--f-sans);
+  }
+  .tweaks.active { display: block; }
+  .tweaks h5 { margin: 0 0 14px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+  .tweaks h5 .close { background: transparent; border: 0; color: inherit; cursor: pointer; font-size: 16px; line-height: 1; padding: 0; }
+  .tweaks .row { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+  .tweaks .row:first-of-type { border-top: 0; }
+  .tweaks label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; }
+  .tweaks .opts { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tweaks .opts button {
+    font-family: inherit; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+    padding: 8px 10px; background: transparent; color: var(--bd-bone);
+    border: 1px solid rgba(255,255,255,0.2); cursor: pointer;
+    transition: background var(--dur) var(--ease);
+  }
+  .tweaks .opts button.on { background: var(--bd-bone); color: var(--bd-ink); border-color: var(--bd-bone); }
+  .tweaks .swatch-row { display: flex; gap: 8px; align-items: center; }
+  .tweaks .swatch-row button { width: 28px; height: 28px; border-radius: 999px; border: 2px solid transparent; padding: 0; cursor: pointer; }
+  .tweaks .swatch-row button.on { border-color: var(--bd-bone); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-body { grid-template-columns: 1fr; }
+    .hero-prehead, .hero-headline, .hero-sub, .hero-cta-row { grid-column: 1 / -1; }
+    .sec-head { grid-template-columns: 1fr; }
+    .problem-grid, .answer-grid, .proj-split { grid-template-columns: 1fr; }
+    .team-strip { grid-template-columns: 1fr; }
+    .cap-grid { grid-template-columns: repeat(2, 1fr); }
+    .proj-grid { grid-template-columns: 1fr; }
+    .proj-grid .g-a, .proj-grid .g-b, .proj-grid .g-c, .proj-grid .g-d { grid-column: 1; grid-row: auto; aspect-ratio: 16/10; }
+    .proj-stats { grid-template-columns: repeat(2, 1fr); }
+    .proj-stats .stat { border-left: 0; border-top: 1px solid; border-top-color: color-mix(in oklab, currentColor 22%, transparent); }
+    .process-grid { grid-template-columns: 1fr; }
+    .risk { grid-template-columns: 1fr; }
+    .rvr { grid-template-columns: 1fr; }
+    .foot-inner { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav on-dark" id="nav">
+  <a href="#top" aria-label="BloxDot home"><img class="nav-wm" src="assets/bloxdot-logo-light.svg" alt="BloxDot"/></a>
+  <nav class="nav-links">
+    <a class="nav-link" href="#work">Work</a>
+    <a class="nav-link" href="#process">Process</a>
+    <a class="nav-link" href="#how-we-work">How we work</a>
+    <a class="btn-red" href="#cta">Request a Proposal</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ========== 02 · CINEMATIC HERO ========== -->
+  <section class="hero" id="hero" data-screen-label="02 Hero">
+    <div class="hero-media" id="heroMedia">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=2000&auto=format&fit=crop');"></div>
+      <div class="slide"        style="background-image: url('https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=2000&auto=format&fit=crop');"></div>
+      <div class="slide"        style="background-image: url('https://images.unsplash.com/photo-1565338354340-7d8ff4420d39?w=2000&auto=format&fit=crop');"></div>
+      <div class="scrim"></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-top">
+        <span>Edition 01 · 2026</span>
+        <div class="dots" role="tablist" aria-label="Hero slide">
+          <button class="active" data-s="0" aria-label="Slide 1"></button>
+          <button data-s="1" aria-label="Slide 2"></button>
+          <button data-s="2" aria-label="Slide 3"></button>
+        </div>
+        <span>Lahore · Karachi · Islamabad</span>
+      </div>
+
+      <div class="hero-body">
+        <div class="hero-prehead">Office Design and Fitout. Lahore, Karachi, Islamabad.</div>
+        <h1 class="hero-headline">The fitout partner that hands you the keys on the <em>date we committed</em><span class="dot">.</span></h1>
+        <p class="hero-sub">
+          You signed the lease. You have a move-in date. You need one team to design the space, deliver the fitout and finish on time without the usual budget shock.
+          BloxDot is that team. One contract. One timeline. One number to call.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn-red" href="#cta">Request a Proposal</a>
+          <span class="hero-cta-note">See three recent offices below.</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>01 · HERO</span>
+        <div class="hero-scroll"><span>See the work</span><span class="chev"></span></div>
+        <span>BloxDot Studio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 03 · THE PROBLEM (graphite) ========== -->
+  <section class="sec sec-problem" id="problem" data-screen-label="03 Problem">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="sec-num">01 — Why fitouts go wrong</div>
+        <h2>Three months in and nobody can tell you the <em>handover date</em><span class="dot">.</span></h2>
+        <p class="intro">
+          Most office projects start with a clean promise and end with a list of delays. The architect blames the contractor. The contractor blames the client. You end up project managing a space you were supposed to move into.
+          Here is why it keeps happening.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <svg class="p-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="4" y="10" width="18" height="18"/>
+            <rect x="30" y="24" width="18" height="18"/>
+            <path d="M22 19 L30 19" stroke-dasharray="2 2"/>
+            <path d="M22 33 L30 33" stroke-dasharray="2 2"/>
+            <path d="M44 13 L48 16 L44 19" />
+            <path d="M8 36 L4 39 L8 42" />
+          </svg>
+          <h3>The design&ndash;build handoff is where the timeline dies.</h3>
+          <p>Architect finishes drawings. Contractor takes over. Items get missed. Clarifications take weeks. Site stops. You absorb the cost of coordination that should have been inside a single scope.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="p-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M4 40 L4 10 L48 10"/>
+            <path d="M4 36 L18 30 L28 34 L40 18 L48 22" fill="none"/>
+            <path d="M42 14 L48 18 L44 24"/>
+            <path d="M10 44 L10 36"/><path d="M18 44 L18 30"/><path d="M28 44 L28 34"/><path d="M40 44 L40 18"/>
+          </svg>
+          <h3>The final bill is never the quoted bill.</h3>
+          <p>Variations stack up. Some are real scope changes. Most are re-pricing of things that should have been specified up front. By week sixteen the budget is a moving target and the emails are defensive.</p>
+        </div>
+
+        <div class="problem-card">
+          <svg class="p-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="6" y="10" width="40" height="34"/>
+            <path d="M6 18 L46 18"/>
+            <path d="M14 6 L14 14"/><path d="M38 6 L38 14"/>
+            <path d="M14 28 L22 28"/><path d="M26 28 L34 28"/><path d="M14 34 L22 34"/><path d="M26 34 L34 34"/>
+            <path d="M32 38 L42 28" stroke="currentColor"/>
+            <path d="M42 38 L32 28" stroke="currentColor"/>
+          </svg>
+          <h3>The move-in date becomes a suggestion.</h3>
+          <p>The date in the signed contract drifts. A week, then three. Your office staff sits in a coworking space. The lease on the new space runs while you wait. The delay shows up in cashflow, not just comfort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 04 · THE BLOXDOT ANSWER ========== -->
+  <section class="sec sec-answer" id="how-we-work" data-screen-label="04 Answer">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="sec-num">02 — How we work</div>
+        <h2>One team. One timeline. One <em>contract</em><span class="dot">.</span></h2>
+        <p class="intro">
+          BloxDot handles design and fitout under a single agreement. The team that draws your space is the team that builds it. That removes the handoff that causes most of the problems above.
+        </p>
+      </div>
+
+      <div class="answer-grid">
+        <div class="answer-card">
+          <div class="n">01</div>
+          <div>
+            <h3>one <em>contract</em>, end to end<span class="dot" style="color:var(--accent);">.</span></h3>
+            <p>Design, MEP, joinery, flooring, lighting, furniture, signage — all under a single agreement with a single number attached. No parallel PO chains, no blame seams.</p>
+          </div>
+        </div>
+        <div class="answer-card">
+          <div class="n">02</div>
+          <div>
+            <h3>one <em>timeline</em>, signed in blood<span class="dot" style="color:var(--accent);">.</span></h3>
+            <p>A dated handover, agreed at BOQ stage, printed on the contract. The plan is reviewed weekly. Slippage is flagged the day it happens, not the month it compounds.</p>
+          </div>
+        </div>
+        <div class="answer-card">
+          <div class="n">03</div>
+          <div>
+            <h3>one <em>project lead</em> who owns it<span class="dot" style="color:var(--accent);">.</span></h3>
+            <p>A named senior from BloxDot is responsible, start to finish. Same person at the first site visit, at the BOQ presentation, at the punch list, at the keys.</p>
+          </div>
+        </div>
+        <div class="answer-card">
+          <div class="n">04</div>
+          <div>
+            <h3>one number, no <em>variation theatre</em><span class="dot" style="color:var(--accent);">.</span></h3>
+            <p>Variations are rare by design — we resolve them in the drawings, not on site. When they do happen, you see the cost and schedule impact in writing before we proceed. No surprises in the final invoice.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team strip -->
+      <div class="team-strip">
+        <div class="cell" data-label="Design review" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&auto=format&fit=crop');"></div>
+        <div class="cell" data-label="Site walkthrough" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&auto=format&fit=crop');"></div>
+        <div class="cell" data-label="Handover" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop');"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Risk reversal (crimson) ========== -->
+  <section class="risk" data-screen-label="04b Risk reversal">
+    <div class="label">Risk reversal</div>
+    <div class="copy">
+      <h2>If we miss, <em>we fix it</em>.</h2>
+      <p>If a delay is on us, we absorb the cost of recovering the timeline. If a delay is driven by a change on your side, you see the cost and schedule impact in writing before we proceed.</p>
+      <p>That is what one contract actually means.</p>
+      <div class="tag">Signed into every BloxDot agreement</div>
+    </div>
+  </section>
+
+  <!-- ========== 05 · CAPABILITIES ========== -->
+  <section class="sec sec-capabilities" id="capabilities" data-screen-label="05 Capabilities">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="sec-num">03 — Scope</div>
+        <h2>Everything your office needs to <em>open</em><span class="dot">.</span></h2>
+        <p class="intro">
+          BloxDot delivers the full commercial fitout package. You do not need to appoint separate consultants for design, MEP and execution.
+        </p>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">01</span><span class="t">space planning &amp; test fits</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">02</span><span class="t">3D visualisations &amp; material boards</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1615529182904-14819c35db37?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">03</span><span class="t">joinery, partitions &amp; ceilings</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">04</span><span class="t">electrical, HVAC &amp; data</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1558882224-dda166733046?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">05</span><span class="t">flooring, lighting &amp; finishes</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">06</span><span class="t">furniture spec &amp; procurement</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">07</span><span class="t">branded interiors &amp; signage</span></div>
+        </div>
+        <div class="cap-tile" style="background-image: url('https://images.unsplash.com/photo-1505798577917-a65157d3320a?w=900&auto=format&fit=crop');">
+          <div class="label"><span class="n">08</span><span class="t">project management &amp; handover</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 06 · PROJECT · TOP SPOT MEDIA (dark) ========== -->
+  <section class="proj-section proj-bg-ink" id="work" data-screen-label="06 Top Spot Media">
+    <div class="proj-meta-bar">
+      <span class="sticky-label">04 · Recent work</span>
+      <div class="title-row">
+        <span><span class="k">Project</span><strong>Top Spot Media</strong></span>
+        <span><span class="k">Type</span>Office interior</span>
+        <span><span class="k">Location</span>Lahore</span>
+        <span><span class="k">Year</span>2025</span>
+      </div>
+      <span class="idx">01 / 03</span>
+    </div>
+
+    <div class="proj-hero-wide" style="background-image: url('https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=2400&auto=format&fit=crop');"></div>
+
+    <div class="proj-split">
+      <div class="proj-summary">
+        <div class="proj-num">Project · P—022</div>
+        <h2>top spot <em>media</em><span class="dot">.</span></h2>
+        <p class="lead">A media company that wanted an office to match the quality of the work they produce.</p>
+        <p>We designed a dark, cinematic interior with the brand built into the walls. Open production floor, enclosed editing suites, and meeting rooms set up for different kinds of work.</p>
+      </div>
+
+      <div>
+        <div class="proj-stats">
+          <div class="stat"><div class="k">Design → Handover</div><div class="v">18<span class="u">weeks</span></div></div>
+          <div class="stat"><div class="k">Area</div><div class="v">11,400<span class="u">sq ft</span></div></div>
+          <div class="stat"><div class="k">Budget variance</div><div class="v">&lt; 2<span class="u">%</span></div></div>
+          <div class="stat"><div class="k">Handover</div><div class="v">On date<span class="u"> · 04 Mar 2025</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-grid" data-project="topspot">
+      <div class="g g-a" data-label="Production floor · 01" data-src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&auto=format&fit=crop');"></div>
+      <div class="g g-b" data-label="Lighting detail · 02" data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-c" data-label="Meeting room · 03" data-src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-d" data-label="Entry corridor · 04" data-src="https://images.unsplash.com/photo-1577412647305-991150c7d163?w=2400&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?w=1800&auto=format&fit=crop');"></div>
+    </div>
+
+    <div class="proj-footer">
+      <span>01 · Top Spot Media</span>
+      <a class="view-full" href="#" data-lightbox="topspot">View full project &nbsp;→</a>
+      <span>Lahore · 2025</span>
+    </div>
+  </section>
+
+  <!-- ========== 07 · PROJECT · GLOBAL BLOOM (bone) ========== -->
+  <section class="proj-section proj-bg-bone" data-screen-label="07 Global Bloom">
+    <div class="proj-meta-bar">
+      <span class="sticky-label">04 · Recent work</span>
+      <div class="title-row">
+        <span><span class="k">Project</span><strong>Global Bloom</strong></span>
+        <span><span class="k">Type</span>Office interior</span>
+        <span><span class="k">Location</span>Karachi</span>
+        <span><span class="k">Year</span>2024</span>
+      </div>
+      <span class="idx">02 / 03</span>
+    </div>
+
+    <div class="proj-hero-wide" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=2400&auto=format&fit=crop');"></div>
+
+    <div class="proj-split">
+      <div class="proj-summary">
+        <div class="proj-num">Project · P—019</div>
+        <h2>global <em>bloom</em><span class="dot">.</span></h2>
+        <p class="lead">A workplace for a trading company that wanted daylight, quiet, and a sense of craft.</p>
+        <p>Vertical oak slats, plaster walls, a floor of washed travertine. Open plan workstations sit along the perimeter to claim the daylight; meeting rooms are glass boxes with acoustic baffling. No surplus, no statement pieces.</p>
+      </div>
+
+      <div>
+        <div class="proj-stats">
+          <div class="stat"><div class="k">Design → Handover</div><div class="v">22<span class="u">weeks</span></div></div>
+          <div class="stat"><div class="k">Area</div><div class="v">8,600<span class="u">sq ft</span></div></div>
+          <div class="stat"><div class="k">Budget variance</div><div class="v">&lt; 1.5<span class="u">%</span></div></div>
+          <div class="stat"><div class="k">Handover</div><div class="v">4 days early<span class="u"> · 11 Sep 2024</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-grid" data-project="globalbloom">
+      <div class="g g-a" data-label="Workstations · 01" data-src="https://images.unsplash.com/photo-1549517045-bc93de075e53?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1549517045-bc93de075e53?w=1400&auto=format&fit=crop');"></div>
+      <div class="g g-b" data-label="Glass meeting room · 02" data-src="https://images.unsplash.com/photo-1577412647305-991150c7d163?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-c" data-label="Oak slat detail · 03" data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-d" data-label="Corner overview · 04" data-src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2400&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1800&auto=format&fit=crop');"></div>
+    </div>
+
+    <div class="proj-footer">
+      <span>02 · Global Bloom</span>
+      <a class="view-full" href="#" data-lightbox="globalbloom">View full project &nbsp;→</a>
+      <span>Karachi · 2024</span>
+    </div>
+  </section>
+
+  <!-- ========== 08 · PROJECT · HYBRIDDOT CREATIVE (plaster) ========== -->
+  <section class="proj-section proj-bg-plaster" data-screen-label="08 HybridDot Creative">
+    <div style="height: 6px; background: var(--accent);"></div>
+    <div class="proj-meta-bar">
+      <span class="sticky-label">04 · Recent work</span>
+      <div class="title-row">
+        <span><span class="k">Project</span><strong>HybridDot Creative</strong></span>
+        <span><span class="k">Type</span>Agency HQ</span>
+        <span><span class="k">Location</span>Lahore</span>
+        <span><span class="k">Year</span>2025</span>
+      </div>
+      <span class="idx">03 / 03</span>
+    </div>
+
+    <div class="proj-hero-wide" style="background-image: url('https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=2400&auto=format&fit=crop');"></div>
+
+    <div class="proj-split">
+      <div class="proj-summary">
+        <div class="proj-num">Project · P—024</div>
+        <h2>hybriddot <em>creative</em><span class="dot">.</span></h2>
+        <p class="lead">The agency's own HQ — a case study in colour discipline and curved plaster forms.</p>
+        <p>A central plaster core shaped as a lozenge holds the boardroom. Around it, a ring of open desks, a breakout stair-bench, and a palette of oxblood, oat, and brass. Our own brand, tested at 1:1.</p>
+      </div>
+
+      <div>
+        <div class="proj-stats">
+          <div class="stat"><div class="k">Design → Handover</div><div class="v">16<span class="u">weeks</span></div></div>
+          <div class="stat"><div class="k">Area</div><div class="v">6,200<span class="u">sq ft</span></div></div>
+          <div class="stat"><div class="k">Budget variance</div><div class="v">0<span class="u">%</span></div></div>
+          <div class="stat"><div class="k">Handover</div><div class="v">On date<span class="u"> · 30 Jul 2025</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-grid" data-project="hybriddot">
+      <div class="g g-a" data-label="Boardroom · 01" data-src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&auto=format&fit=crop');"></div>
+      <div class="g g-b" data-label="Breakout stair · 02" data-src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-c" data-label="Curve detail · 03" data-src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&auto=format&fit=crop');"></div>
+      <div class="g g-d" data-label="Floor overview · 04" data-src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2400&auto=format&fit=crop" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1800&auto=format&fit=crop');"></div>
+    </div>
+
+    <div class="proj-footer">
+      <span>03 · HybridDot Creative</span>
+      <a class="view-full" href="#" data-lightbox="hybriddot">View full project &nbsp;→</a>
+      <span>Lahore · 2025</span>
+    </div>
+  </section>
+
+  <!-- ========== 09 · PROCESS ========== -->
+  <section class="sec sec-process" id="process" data-screen-label="09 Process">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="sec-num">05 — Process</div>
+        <h2>From first meeting to <em>move-in day</em><span class="dot">.</span></h2>
+        <p class="intro">
+          A clear sequence, with decisions made at the right time. No rushed drawings. No forgotten items. No scope added on the way out.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&auto=format&fit=crop');"></div>
+          <div class="meta"><span>Step</span><span class="num">01</span></div>
+          <h3>site visit &amp; brief</h3>
+          <p>We walk the shell space. We measure. We listen to how you work now and how you want to work next. Output: a one-page brief and a budget range.</p>
+        </article>
+        <article class="process-step">
+          <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop');"></div>
+          <div class="meta"><span>Step</span><span class="num">02</span></div>
+          <h3>concept &amp; layout</h3>
+          <p>Two planning options. Rendered mood for one. Material direction. This is where the biggest decisions get made and where cost is actually controlled.</p>
+        </article>
+        <article class="process-step">
+          <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop');"></div>
+          <div class="meta"><span>Step</span><span class="num">03</span></div>
+          <h3>detailed design &amp; BOQ</h3>
+          <p>Every wall, ceiling, fixture and finish drawn and priced. Signed-off BOQ becomes the contract. No surprise line items after this page.</p>
+        </article>
+        <article class="process-step">
+          <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop');"></div>
+          <div class="meta"><span>Step</span><span class="num">04</span></div>
+          <h3>fitout</h3>
+          <p>Our site team takes over — the same team that drew it is the team that builds it. Weekly client updates. Shared site log. No silent weeks.</p>
+        </article>
+        <article class="process-step">
+          <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop');"></div>
+          <div class="meta"><span>Step</span><span class="num">05</span></div>
+          <h3>handover</h3>
+          <p>Punch list closed before you walk in. Keys on the committed date. 12-month defects warranty and a 90-day settle-in check-up built in as standard.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 15 · FINAL CTA ========== -->
+  <section class="final-cta" id="cta" data-screen-label="10 Final CTA">
+    <div class="final-cta-inner">
+      <div class="pre">One team. One timeline. One contract.</div>
+      <h2>Want your office handed over on the <em>date you committed to</em><span class="dot">?</span></h2>
+      <p>Request a proposal. Get a site visit this week. See a real plan, with numbers, next week.</p>
+      <div class="cta-row">
+        <a class="btn-red" href="mailto:hello@bloxdot.com">Request a Proposal</a>
+        <a class="btn-ghost" href="#work">See recent work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 16 · FOOTER ========== -->
+  <footer class="foot" data-screen-label="11 Footer">
+    <div class="foot-inner">
+      <div>
+        <div class="wm"><img src="assets/bloxdot-logo-light.svg" alt="BloxDot"/></div>
+        <p class="pitch">Office design and fitout, delivered as one contract. Lahore · Karachi · Islamabad · Dubai.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#how-we-work">How we work</a></li>
+          <li><a href="#cta">Request a Proposal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>hello@bloxdot.com</li>
+          <li>+92 300 022 8345</li>
+          <li>27-C, Gulberg III, Lahore</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Family</h4>
+        <ul>
+          <li>BloxDot Studio</li>
+          <li>A sub-brand of HybridDot</li>
+          <li><a href="BloxDot Brandbook.html">Brand book →</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr/>
+    <div class="foot-inner fine" style="display:flex;">
+      <span>© 2026 BloxDot Studio</span>
+      <span>Edition 01 · Rev. 2026.04</span>
+    </div>
+  </footer>
+</main>
+
+<!-- ========== LIGHTBOX ========== -->
+<div class="lb" id="lightbox" aria-hidden="true" role="dialog">
+  <div class="lb-top">
+    <div id="lbTitle">Project</div>
+    <div id="lbCounter">01 / 06</div>
+    <button class="close" id="lbClose" aria-label="Close">✕</button>
+  </div>
+  <div class="lb-stage">
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img id="lbImg" src="" alt=""/>
+    <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
+  </div>
+  <div class="lb-bot">
+    <div id="lbCaption">Caption</div>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+  </div>
+</div>
+
+<!-- ========== TWEAKS ========== -->
+<div class="tweaks" id="tweaks">
+  <h5>Tweaks <button class="close" id="tweaksClose" aria-label="Close">✕</button></h5>
+  <div class="row">
+    <label>Hero mood</label>
+    <div class="opts" data-group="hero">
+      <button data-v="dark" class="on">Dark</button>
+      <button data-v="light">Light</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Accent color</label>
+    <div class="swatch-row" data-group="accent">
+      <button data-v="#C90D28" style="background:#C90D28" class="on" title="Crimson"></button>
+      <button data-v="#A67A3C" style="background:#A67A3C" title="Brass"></button>
+      <button data-v="#121212" style="background:#121212" title="Ink"></button>
+      <button data-v="#8A7C66" style="background:#8A7C66" title="Clay"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Tweak defaults for persistence -->
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "hero": "dark",
+  "accent": "#C90D28"
+}/*EDITMODE-END*/;
+</script>
+
+<script>
+(() => {
+  // ---------- Nav scroll state ----------
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('hero');
+  function updateNav() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 80) { nav.classList.remove('on-dark'); nav.classList.add('on-light'); }
+    else { nav.classList.add('on-dark'); nav.classList.remove('on-light'); }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ---------- Hero slideshow ----------
+  const slides = document.querySelectorAll('#heroMedia .slide');
+  const dots = document.querySelectorAll('.hero-top .dots button');
+  let heroIdx = 0, heroTimer = null;
+  function showSlide(i) {
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('active', k === i));
+    heroIdx = i;
+  }
+  function startHero() {
+    stopHero();
+    heroTimer = setInterval(() => showSlide((heroIdx + 1) % slides.length), 5200);
+  }
+  function stopHero() { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } }
+  dots.forEach(d => d.addEventListener('click', () => { showSlide(+d.dataset.s); startHero(); }));
+  startHero();
+
+  // ---------- Render-vs-Real slider ----------
+  function initCompare(el) {
+    const handle = el.querySelector('.handle');
+    const top = el.querySelector('.layer.top');
+    if (!handle || !top) return;
+    let dragging = false;
+    function setPos(clientX) {
+      const rect = el.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      handle.style.left = pct + '%';
+      top.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    }
+    const onDown = (e) => {
+      if (el.classList.contains('mode-hover') || el.classList.contains('mode-static')) return;
+      dragging = true;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+      e.preventDefault();
+    };
+    const onMove = (e) => {
+      if (!dragging) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+    };
+    const onUp = () => { dragging = false; };
+    el.addEventListener('mousedown', onDown);
+    el.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+  }
+  document.querySelectorAll('[data-compare]').forEach(initCompare);
+
+  // ---------- Lightbox ----------
+  const LB_DATA = {
+    topspot: {
+      title: 'Top Spot Media · Lahore',
+      items: [
+        { src: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=2000&auto=format&fit=crop', cap: 'Entry lounge · dark travertine, brass signage' },
+        { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&auto=format&fit=crop', cap: 'Open production floor · 01' },
+        { src: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=2000&auto=format&fit=crop', cap: 'Meeting room · acoustic felt ceiling' },
+        { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2000&auto=format&fit=crop', cap: 'Lighting detail · recessed linear' },
+        { src: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?w=2000&auto=format&fit=crop', cap: 'Entry corridor · oak slat wall' },
+        { src: 'https://images.unsplash.com/photo-1616137466211-f939a420be84?w=2000&auto=format&fit=crop', cap: 'Editing suite · blackout + monitor bay' },
+        { src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=2000&auto=format&fit=crop', cap: 'Breakout bay · lounge seating' },
+        { src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2000&auto=format&fit=crop', cap: 'Floor overview · from corner' }
+      ]
+    },
+    globalbloom: {
+      title: 'Global Bloom · Karachi',
+      items: [
+        { src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=2000&auto=format&fit=crop', cap: 'Workstation row · west light' },
+        { src: 'https://images.unsplash.com/photo-1549517045-bc93de075e53?w=2000&auto=format&fit=crop', cap: 'Open plan · oak slat backdrop' },
+        { src: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?w=2000&auto=format&fit=crop', cap: 'Glass meeting box · acoustic baffle ceiling' },
+        { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=2000&auto=format&fit=crop', cap: 'Material junction · oak / plaster / travertine' },
+        { src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2000&auto=format&fit=crop', cap: 'Corner overview · daylight' },
+        { src: 'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=2000&auto=format&fit=crop', cap: 'Reception · brass and plaster' }
+      ]
+    },
+    hybriddot: {
+      title: 'HybridDot Creative · Lahore',
+      items: [
+        { src: 'https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=2000&auto=format&fit=crop', cap: 'Central plaster core · lozenge form' },
+        { src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=2000&auto=format&fit=crop', cap: 'Boardroom · oxblood seating' },
+        { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=2000&auto=format&fit=crop', cap: 'Breakout stair bench' },
+        { src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&auto=format&fit=crop', cap: 'Curve detail · plaster finish' },
+        { src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=2000&auto=format&fit=crop', cap: 'Floor overview · ring of desks' },
+        { src: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=2000&auto=format&fit=crop', cap: 'Focus room · oat + brass' }
+      ]
+    }
+  };
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCaption');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCounter = document.getElementById('lbCounter');
+  const lbThumbs = document.getElementById('lbThumbs');
+  let lbKey = null, lbIdx = 0;
+  function renderLB() {
+    const data = LB_DATA[lbKey];
+    if (!data) return;
+    const item = data.items[lbIdx];
+    lbImg.src = item.src;
+    lbCap.textContent = item.cap;
+    lbTitle.textContent = data.title;
+    lbCounter.textContent = String(lbIdx + 1).padStart(2, '0') + ' / ' + String(data.items.length).padStart(2, '0');
+    lbThumbs.innerHTML = data.items.map((it, k) => `<button class="t ${k === lbIdx ? 'active' : ''}" data-k="${k}" style="background-image: url('${it.src.replace('w=2000', 'w=200')}')"></button>`).join('');
+    lbThumbs.querySelectorAll('.t').forEach(t => t.addEventListener('click', () => { lbIdx = +t.dataset.k; renderLB(); }));
+  }
+  function openLB(key, i = 0) { lbKey = key; lbIdx = i; renderLB(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('lbClose').addEventListener('click', closeLB);
+  document.getElementById('lbPrev').addEventListener('click', () => { const n = LB_DATA[lbKey].items.length; lbIdx = (lbIdx - 1 + n) % n; renderLB(); });
+  document.getElementById('lbNext').addEventListener('click', () => { const n = LB_DATA[lbKey].items.length; lbIdx = (lbIdx + 1) % n; renderLB(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  });
+  document.querySelectorAll('[data-lightbox]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); openLB(a.dataset.lightbox, 0); }));
+  document.querySelectorAll('.proj-grid .g').forEach((g, idx, all) => {
+    g.addEventListener('click', () => {
+      const section = g.closest('.proj-grid');
+      const key = section.dataset.project;
+      const localIdx = Array.from(section.querySelectorAll('.g')).indexOf(g);
+      openLB(key, localIdx);
+    });
+  });
+
+  // ---------- Tweaks ----------
+  const tweaks = document.getElementById('tweaks');
+  let state = Object.assign({}, TWEAK_DEFAULTS);
+
+  function applyTweaks() {
+    // Hero
+    hero.classList.toggle('hero-light', state.hero === 'light');
+    // RVR
+    document.querySelectorAll('.compare').forEach(c => {
+      c.classList.remove('mode-hover', 'mode-static');
+      if (state.rvr === 'hover') c.classList.add('mode-hover');
+      else if (state.rvr === 'static') c.classList.add('mode-static');
+      // Reset inline clip-path for slider when switching back
+      const top = c.querySelector('.layer.top');
+      const handle = c.querySelector('.handle');
+      if (state.rvr === 'slider' && top && handle) {
+        top.style.clipPath = 'inset(0 50% 0 0)';
+        handle.style.left = '50%';
+      }
+    });
+    // Accent
+    document.documentElement.style.setProperty('--accent', state.accent);
+
+    // Sync UI
+    tweaks.querySelectorAll('.opts').forEach(grp => {
+      const g = grp.dataset.group;
+      grp.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === state[g]));
+    });
+    tweaks.querySelectorAll('.swatch-row').forEach(grp => {
+      const g = grp.dataset.group;
+      grp.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === state[g]));
+    });
+  }
+
+  tweaks.querySelectorAll('.opts button, .swatch-row button').forEach(b => {
+    b.addEventListener('click', () => {
+      const grp = b.closest('[data-group]');
+      const g = grp.dataset.group;
+      state[g] = b.dataset.v;
+      applyTweaks();
+      window.parent && window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [g]: b.dataset.v } }, '*');
+    });
+  });
+  document.getElementById('tweaksClose').addEventListener('click', () => tweaks.classList.remove('active'));
+
+  // Edit mode protocol — register listener BEFORE announcing
+  window.addEventListener('message', (e) => {
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode') tweaks.classList.add('active');
+    if (d.type === '__deactivate_edit_mode') tweaks.classList.remove('active');
+  });
+  window.parent && window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+  applyTweaks();
+})();
+</script>
+</body>
+</html>

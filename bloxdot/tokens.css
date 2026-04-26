@@ -1,0 +1,212 @@
+/* =================================================================
+   BloxDot — Brand tokens
+   Architecture & Interior Design Studio • Lahore · Dubai · Beyond
+   Sub-brand of HybridDot: inherits the red-dot punctuation and
+   lowercase-title convention, flips the canvas from ink to bone.
+   ================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,200..900,0..100,0..1;1,9..144,200..900,0..100,0..1&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap');
+
+:root {
+  /* ------- Palette: warm neutrals on a bone canvas ------- */
+  --bd-bone:       #F2EDE4;  /* paper — default surface */
+  --bd-bone-soft:  #ECE5D8;
+  --bd-plaster:    #E7DFD1;  /* warm secondary surface */
+  --bd-stone:      #C9BFAF;  /* subtle dividers, muted fills */
+  --bd-clay:       #8A7C66;  /* mid neutral, captions */
+  --bd-graphite:   #3A3A38;  /* body text */
+  --bd-ink:        #121212;  /* near-black headings, heavy type */
+  --bd-brass:      #A67A3C;  /* warm metallic accent */
+  --bd-brass-soft: #D9BE8B;
+
+  /* Inherited from HybridDot — used sparingly as signature dot + accent */
+  --bd-crimson:    #C90D28;
+
+  /* ------- Semantics ------- */
+  --fg:            var(--bd-ink);
+  --fg-body:       var(--bd-graphite);
+  --fg-muted:      var(--bd-clay);
+  --fg-subtle:     rgba(58, 58, 56, 0.48);
+
+  --bg:            var(--bd-bone);
+  --bg-soft:       var(--bd-bone-soft);
+  --bg-warm:       var(--bd-plaster);
+  --bg-ink:        var(--bd-ink);
+
+  --rule:          rgba(18, 18, 18, 0.14);
+  --rule-strong:   rgba(18, 18, 18, 0.32);
+  --rule-soft:     rgba(18, 18, 18, 0.08);
+
+  /* ------- Type ------- */
+  --f-serif:       'Fraunces', 'Canela', 'Playfair Display', Georgia, serif;
+  --f-sans:        'Montserrat', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+
+  /* Fraunces optical + variation defaults for display use */
+  --f-display-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+  --f-serif-text-settings: "opsz" 14, "SOFT" 50;
+
+  /* Type scale — editorial, generous */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-28: 28px;
+  --fs-32: 32px;
+  --fs-40: 40px;
+  --fs-48: 48px;
+  --fs-64: 64px;
+  --fs-80: 80px;
+  --fs-96: 96px;
+  --fs-128: 128px;
+  --fs-160: 160px;
+
+  /* ------- Layout ------- */
+  --page-pad: clamp(24px, 5vw, 96px);
+  --col-max: 1440px;
+  --measure: 62ch;
+
+  /* ------- Motion ------- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur:  280ms;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg-body);
+  font-family: var(--f-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02", "kern";
+}
+
+::selection { background: var(--bd-ink); color: var(--bd-bone); }
+
+img { display: block; max-width: 100%; }
+
+/* ---------- Typographic primitives ---------- */
+
+/* Serif display — Fraunces at display opsz, moderate soft, low contrast on big sizes */
+.serif, .serif-display {
+  font-family: var(--f-serif);
+  font-variation-settings: var(--f-display-settings);
+  font-weight: 350;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: var(--fg);
+}
+.serif-text {
+  font-family: var(--f-serif);
+  font-variation-settings: var(--f-serif-text-settings);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+.sans { font-family: var(--f-sans); }
+
+/* BloxDot convention inherited from HybridDot:
+   lowercase titles ending in a red dot. */
+.dot-title {
+  font-family: var(--f-serif);
+  font-variation-settings: var(--f-display-settings);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--fg);
+  text-transform: lowercase;
+  margin: 0;
+}
+.dot-title::after {
+  content: '.';
+  color: var(--bd-crimson);
+  margin-left: 0.04em;
+}
+
+.eyebrow {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.caption {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.meta {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
+
+p { margin: 0 0 1em; max-width: var(--measure); color: var(--fg-body); }
+p.lede {
+  font-family: var(--f-serif);
+  font-variation-settings: var(--f-serif-text-settings);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+  color: var(--fg);
+  font-weight: 350;
+  max-width: 52ch;
+}
+
+/* Red-dot suffix for inline text ('permanence.' style) */
+.rd::after { content: '.'; color: var(--bd-crimson); }
+
+/* Hairline rules (the studio's signature graphic device) */
+hr.rule {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 0;
+}
+hr.rule-strong { background: var(--rule-strong); }
+
+/* ---------- Section scaffolding ---------- */
+.page {
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+}
+
+.section {
+  padding: clamp(80px, 12vh, 160px) 0;
+  border-top: 1px solid var(--rule);
+}
+.section:first-of-type { border-top: 0; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(80px, 120px) 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(48px, 8vh, 96px);
+  align-items: baseline;
+}
+.section-num {
+  font-family: var(--f-sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--fg-muted);
+  padding-top: 14px;
+  border-top: 1px solid var(--fg);
+  align-self: start;
+}

@@ -1,0 +1,118 @@
+# BloxDot
+
+A Lahore practice where the same team draws the project and runs the build. Architecture, interiors, and construction under one contract.
+
+## What we do
+
+Core services:
+- Architecture: ground-up design for homes, apartments, commercial buildings
+- Interior design: textures, materials, layout for new and existing spaces
+- Construction: general contractor for villas, apartment blocks, hospitality, shell-and-core
+
+Supporting services:
+- Supervision: quality control on projects built by other contractors
+- Office fitout: design, build, furnish under one contract
+- Furniture: pieces designed by BloxDot, fabricated by trusted partners in Lahore
+
+## Principal
+
+Mir Sohaib Sajid, Principal Architect. Founded BloxDot in 2023. Involved on every project.
+
+## Location
+
+CP-93 Fairways Raya, DHA Phase 6, Lahore, Pakistan.
+Projects across Pakistan and the Gulf.
+
+## Contact
+
+hello@bloxdot.com
++92 300 0228345
+https://bloxdot.com
+
+## Portfolio
+
+Twelve completed and in-progress projects as of 2026. Selected work includes Greystone Villa (residential, Lahore), Z Apartments (high-rise concept, Islamabad), TopSpot Media (corporate office, Lahore).
+
+## How we work
+
+One team handles design and construction together. The principal is involved on every project from concept to handover. We work as a single point of accountability for clients who do not want to coordinate between an architect, an interior designer, and a contractor separately.
+
+## Architecture service
+
+URL: https://bloxdot.com/architecture
+
+Architectural design for ground-up residential and commercial projects in Pakistan. Project types include: villas and family homes, multi-unit residential and apartment buildings, commercial shell-and-core, hospitality (restaurants, cafes, boutique hotels), and renovation or retrofit.
+
+Deliverables include concept design, schematic design, design development, construction documents, and handover package. Typical residential timeline: four to six months. Commercial timeline: six to nine months. Renovation timeline: two to four months.
+
+Available as a standalone design service or paired with construction under one contract. Led by principal architect Sohaib Sajid on every project.
+
+## Interior design service
+
+URL: https://bloxdot.com/interior-design
+
+Interior design for residential, hospitality, commercial, renovation, and interior styling projects in Pakistan. Project types include: residential interiors for homes and apartments, hospitality interiors for restaurants and boutique hotels, commercial interiors for offices and retail, renovation and remodel for existing spaces, and interior styling for completed shells.
+
+Deliverables include concept and mood direction, space planning, design development, execution drawings, and site execution support. Typical apartment interior: six to eight weeks. Villa interior: three to four months. Commercial interior: two to six months depending on scale.
+
+Available as a standalone interior design service or paired with architecture, construction, or office fitout under one contract. Led by principal architect Sohaib Sajid on every project.
+
+## Construction service
+
+URL: https://bloxdot.com/construction
+
+Design-build construction services in Pakistan and the Gulf. BloxDot operates as the contracted general contractor with direct project manager and site engineer on every project, with trades subcontracted to specialist crews under BloxDot coordination.
+
+Project types: residential villas, multi-unit residential and apartment buildings up to ten floors, commercial shell-and-core, hospitality (restaurants, cafes, boutique hotels), renovation and retrofit.
+
+Contract structure: itemized BOQ with brand and grade specified, milestone payments tied to verified site photographs, twelve-month defects liability period on workmanship, three-year structural warranty per engineering consultant certification, weekly photo and video updates, named senior accountability through warranty period.
+
+Pricing models: fixed-price lump sum for fully-specified residential, cost-plus with fixed management fee for larger or scope-evolving commercial work.
+
+Approvals: BloxDot prepares approval drawing sets and manages submission to local authorities including LDA, DHA, and BTAP.
+
+Typical timelines: residential villa nine to twelve months, multi-unit residential eighteen months and up, commercial shell-and-core twelve to eighteen months. Project-specific timelines confirmed at sign-on.
+
+## On-site supervision service
+
+URL: https://bloxdot.com/supervision
+
+On-site supervision for BloxDot architecture and interior design clients only. The service exists to protect a design BloxDot drew, supervised by the same team that drew it. Not offered as a standalone service for clients who engaged a different firm for design.
+
+Deliverables include kickoff and layout marking, scheduled site visits at every major milestone, material sample approvals, drawing adjustments when site conditions differ from drawings, mock-up inspections, written site reports after every visit, and a final handover walkthrough with punch list closure.
+
+Typical residential cadence is a site visit every two to three weeks, more frequent during finishes. Commercial cadence is weekly during active build. Pricing is structured as a percentage of construction cost for larger projects or a fixed monthly fee for smaller scope. Led by principal architect Sohaib Sajid on every supervised project he designed.
+
+## About BloxDot
+
+URL: https://bloxdot.com/about
+
+BloxDot is a design and construction practice in Lahore, founded in 2023 within the HybridDot group. The studio is led by Principal Architect Mir Sohaib Sajid and Studio Manager Muhammad Shahroz, supported by a small team of architects, draftsmen, and visualizers.
+
+The practice runs three core services: architecture, interiors, and construction. Three supporting services: supervision, office fitout, and custom furniture. Most projects span two or three of these services under one contract. Sohaib leads design on every project from concept through construction documents. Shahroz runs studio operations and project coordination.
+
+Based in DHA Phase 6, Lahore. Working across Pakistan and the Gulf. Twelve completed and in-progress projects as of 2026.
+
+## Projects
+
+URL: https://bloxdot.com/projects
+
+Selected BloxDot work across architecture, interiors, and construction. Six project pages live as of April 2026, with more added as projects complete.
+
+- Greystone Villa (https://bloxdot.com/projects/greystone-villa) · Residential, Lahore, 2025, completed. Symmetrical neoclassical villa with natural stone tones and warm metal accents. BloxDot architecture, interior design, and construction under one contract.
+- TopSpot Media (https://bloxdot.com/projects/topspot-media) · Corporate fitout, Lahore, 2025, completed. Cinematic office for a media company. Dark palette, brand-into-walls, editing suites alongside open production floor. BloxDot interior design and fitout under one contract.
+- HybridDot Creative Agency (https://bloxdot.com/projects/hybriddot-creative-agency) · Commercial fitout, Lahore, 2025, completed. Office for the parent practice that founded BloxDot in 2023. BloxDot interior design and construction under one contract.
+- The Grid House (https://bloxdot.com/projects/the-grid-house) · Residential interior, Lahore, 2025, completed. Refined residential interior in cool tones with marble, wood, and precise linear lighting. BloxDot interior design with on-site supervision during fitout.
+- Z Apartments (https://bloxdot.com/projects/z-apartments) · Multi-unit residential concept, Islamabad, 2025. Twin residential towers, layered massing, dense urban dignity. Concept stage, BloxDot architecture only.
+- Balkasar Estate (https://bloxdot.com/projects/balkasar-estate) · Residential concept, Chakwal, 2026. Family estate as low horizontal pavilions designed to sit inside the existing tree line. Concept stage, BloxDot architecture and interior design.
+- The Slat House (https://bloxdot.com/projects/the-slat-house) · Residential concept, DHA Phase 5 Lahore, 2026. 1-kanal contemporary residence organised around a vertical timber slat motif on the front elevation, with a central courtyard atrium containing an indoor pool. Concept stage, BloxDot architecture and interior design.
+- Global Bloom (https://bloxdot.com/projects/global-bloom) · Corporate fitout, Karachi, 2025, completed. 1,600 sq ft trading-company office. Vertical oak slats, plaster walls, washed travertine floor, planted partitions softening transitions, glass-boxed meeting rooms with acoustic baffling. 22-week design-to-handover, on date, under 1.5% budget variance. BloxDot interior design and fitout under one contract.
+- Casa Octavia (https://bloxdot.com/projects/casa-octavia) · Residential concept, DHA Phase 6 Lahore, 2025. 2-kanal residence drawn around a central recessed portico and a disciplined classical-modern palette in beige limestone, travertine, walnut, and soft plaster. Concept stage, BloxDot architecture and interior design.
+
+## Blog
+
+URL: https://bloxdot.com/blog
+
+Long-form guides and notes from the studio on architecture, interior design, construction, and office fitout in Pakistan and the Gulf. Reviewed by Principal Architect Mir Sohaib Sajid.
+
+- Office Fitout Cost in Lahore: What to Budget Before Signing a Lease (https://bloxdot.com/blog/office-fitout-cost-lahore-before-signing-lease) · Published April 2026. A 2026 guide to office fitout cost ranges in Lahore (PKR 4,500 to PKR 30,000 per sq ft), what an honest BOQ covers across eleven cost categories, eleven things to verify before signing a commercial lease, three reasons fitouts go over budget, and three pricing models for office fitouts. Includes total-cost framework for 2,500 / 5,000 / 10,000 sq ft offices and an FAQ on timelines, warranty, and architect-led versus contractor-only fitouts.
