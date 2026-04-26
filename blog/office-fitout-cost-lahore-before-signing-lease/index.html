@@ -622,17 +622,47 @@
 
 <div class="read-progress" aria-hidden="true"><span id="read-bar"></span></div>
 
+<!-- ===== NAV ===== -->
 <header class="nav on-light" id="nav">
   <a href="/" aria-label="BloxDot home" class="home-link">
     <img class="nav-wm" src="/assets/bloxdot-logo-dark.svg" alt="BloxDot" width="110" height="18" decoding="async"/>
   </a>
-  <nav class="nav-links">
-    <a class="nav-link" href="/#services">Services</a>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true"/>
+
+  <nav class="nav-links" aria-label="Primary">
     <a class="nav-link" href="/projects">Work</a>
-    <a class="nav-link" href="/blog">Journal</a>
-    <a class="nav-link" href="/about">Studio</a>
+
+    <div class="nav-item-services">
+      <button type="button" class="nav-services-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+      <div class="nav-mega" role="menu" aria-label="Services">
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">design</span>
+        <a class="nav-mega-link" href="/architecture">Architecture</a>
+        <a class="nav-mega-link" href="/interior-design">Interior Design</a>
+      </div>
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">build</span>
+        <a class="nav-mega-link" href="/construction">Construction</a>
+        <a class="nav-mega-link" href="/supervision">Supervision</a>
+      </div>
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">productized</span>
+        <a class="nav-mega-link" href="/corporate">Office Fitout</a>
+        <a class="nav-mega-link" href="/furniture">Furniture</a>
+      </div>
+      </div>
+    </div>
+
+    <a class="nav-link" href="/blog" aria-current="page">Journal</a>
+    <a class="nav-link" href="/about">About</a>
+
     <a class="btn-red" href="/#contact">Start a conversation</a>
   </nav>
+
+  <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </label>
 </header>
 
 <main id="top">

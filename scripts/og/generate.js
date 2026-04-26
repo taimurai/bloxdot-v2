@@ -1,7 +1,7 @@
 // Generate 1200x630 OG cards for every page.
 // Loads template.html, swaps title/tagline/num/label per card, screenshots, optimizes to JPG.
 
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');

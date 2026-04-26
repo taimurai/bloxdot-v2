@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "puppeteer-core": "^24.42.0",
+    "sharp": "^0.34.5"
+  }
 }

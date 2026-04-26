@@ -1318,14 +1318,45 @@ src="https://www.facebook.com/tr?id=1646000253120189&ev=PageView&noscript=1"/></
 
 <!-- ===== NAV ===== -->
 <header class="nav on-light" id="nav">
-  <a href="/" aria-label="BloxDot home"><img class="nav-wm" src="/assets/bloxdot-logo-dark.svg" alt="BloxDot"></a>
-  <nav class="nav-links">
-    <a class="nav-link" href="#collection">Collection</a>
-    <a class="nav-link" href="#process">Process</a>
-    <a class="nav-link" href="#materials">Materials</a>
-    <a class="nav-link" href="#faq">FAQ</a>
-    <a class="btn-red" href="#cta">Book a consultation</a>
+  <a href="/" aria-label="BloxDot home" class="home-link">
+    <img class="nav-wm" src="/assets/bloxdot-logo-dark.svg" alt="BloxDot" width="110" height="18" decoding="async"/>
+  </a>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true"/>
+
+  <nav class="nav-links" aria-label="Primary">
+    <a class="nav-link" href="/projects">Work</a>
+
+    <div class="nav-item-services">
+      <button type="button" class="nav-services-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+      <div class="nav-mega" role="menu" aria-label="Services">
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">design</span>
+        <a class="nav-mega-link" href="/architecture">Architecture</a>
+        <a class="nav-mega-link" href="/interior-design">Interior Design</a>
+      </div>
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">build</span>
+        <a class="nav-mega-link" href="/construction">Construction</a>
+        <a class="nav-mega-link" href="/supervision">Supervision</a>
+      </div>
+      <div class="nav-mega-col">
+        <span class="nav-mega-label">productized</span>
+        <a class="nav-mega-link" href="/corporate">Office Fitout</a>
+        <a class="nav-mega-link" href="/furniture" aria-current="page">Furniture</a>
+      </div>
+      </div>
+    </div>
+
+    <a class="nav-link" href="/blog">Journal</a>
+    <a class="nav-link" href="/about">About</a>
+
+    <a class="btn-red" href="/#contact">Start a conversation</a>
   </nav>
+
+  <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </label>
 </header>
 
 <main id="top">

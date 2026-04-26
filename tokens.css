@@ -227,3 +227,254 @@ hr.rule-strong { background: var(--rule-strong); }
   border-top: 1px solid var(--fg);
   align-self: start;
 }
+
+/* =================================================================
+   PRIMARY NAVIGATION — Services mega-menu + mobile drawer
+   Each page's <header class="nav"> uses these tokens. Per-page
+   `<style>` blocks still own .nav (sticky positioning, padding,
+   on-light vs on-dark background) — this file owns the dropdown
+   and mobile drawer behaviour.
+   ================================================================= */
+
+.nav-item-services {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-services-trigger {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.72;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity var(--dur) var(--ease);
+}
+.nav-services-trigger::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-right: 1.25px solid currentColor;
+  border-bottom: 1.25px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform var(--dur) var(--ease);
+}
+.nav-item-services:hover .nav-services-trigger,
+.nav-item-services:focus-within .nav-services-trigger,
+.nav-item-services:has(.nav-mega-link[aria-current="page"]) .nav-services-trigger {
+  opacity: 1;
+}
+.nav-item-services:hover .nav-services-trigger::after,
+.nav-item-services:focus-within .nav-services-trigger::after {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.nav-mega {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--bd-bone);
+  border: 1px solid var(--rule);
+  padding: 32px 40px;
+  min-width: 580px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  box-shadow: 0 24px 60px -20px rgba(18, 18, 18, 0.18);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    visibility 0s linear var(--dur);
+  z-index: 100;
+}
+.nav-mega::before {
+  /* hover bridge between trigger and panel */
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+}
+.nav-item-services:hover .nav-mega,
+.nav-item-services:focus-within .nav-mega {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s, 0s, 0s;
+}
+
+.nav-mega-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.nav-mega-label {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+.nav-mega-link {
+  font-family: var(--f-serif);
+  font-variation-settings: "opsz" 40, "SOFT" 30;
+  font-weight: 350;
+  font-size: 26px;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  text-transform: lowercase;
+  color: var(--bd-ink);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+.nav-mega-link:hover,
+.nav-mega-link[aria-current="page"] {
+  color: var(--bd-crimson);
+}
+
+/* Active state for top-level nav-link (Work / Journal / About) */
+.nav-link[aria-current="page"] {
+  opacity: 1;
+}
+
+/* On-dark variant of the mega-menu */
+.nav.on-dark .nav-mega {
+  background: var(--bd-ink);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.nav.on-dark .nav-mega-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+.nav.on-dark .nav-mega-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Hide mobile-only controls by default */
+.nav-toggle { display: none; }
+.nav-burger { display: none; }
+
+/* ============ MOBILE NAV (≤900px) ============ */
+@media (max-width: 900px) {
+  /* Hamburger button */
+  .nav-burger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 70;
+    position: relative;
+    margin-left: 12px;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--bd-ink);
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .nav.on-dark .nav-burger span { background: #fff; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* Drawer */
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    background: var(--bd-bone);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 88px 24px 32px;
+    gap: 0;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform 320ms var(--ease);
+    z-index: 55;
+  }
+  .nav.on-dark .nav-links { background: var(--bd-ink); color: #fff; }
+  .nav-toggle:checked ~ .nav-links { transform: translateY(0); }
+
+  /* Items inside drawer */
+  .nav-links .nav-link,
+  .nav-links .nav-services-trigger {
+    display: block !important;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 1;
+    text-align: left;
+  }
+  .nav-services-trigger::after { display: none; }
+
+  .nav-item-services {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-item-services .nav-services-trigger { border-bottom: 0; }
+
+  .nav-mega {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: transparent;
+    border: 0;
+    padding: 0 0 18px;
+    box-shadow: none;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-width: 0;
+    transition: none;
+  }
+  .nav-mega::before { display: none; }
+  .nav-mega-col { gap: 8px; }
+  .nav-mega-label {
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    margin-top: 6px;
+  }
+  .nav-mega-link {
+    font-size: 22px;
+    padding: 4px 0;
+  }
+
+  .nav-links .btn-red {
+    margin-top: 24px;
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  /* Lock body scroll while drawer open */
+  body:has(.nav-toggle:checked) { overflow: hidden; }
+}
