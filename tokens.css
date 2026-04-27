@@ -481,3 +481,54 @@ hr.rule-strong { background: var(--rule-strong); }
   /* Lock body scroll while drawer open */
   body:has(.nav-toggle:checked) { overflow: hidden; }
 }
+
+/* =================================================================
+   WHATSAPP FLOATING BUTTON — fixed bottom-right, all pages
+   ================================================================= */
+.whatsapp-fab {
+  position: fixed;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 8px 24px -6px rgba(37, 211, 102, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.18);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  z-index: 50;
+}
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 12px 30px -6px rgba(37, 211, 102, 0.65),
+    0 4px 10px rgba(0, 0, 0, 0.22);
+  outline: none;
+}
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+@media (max-width: 600px) {
+  .whatsapp-fab {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 52px;
+    height: 52px;
+  }
+  .whatsapp-fab svg { width: 26px; height: 26px; }
+}
+/* Hide while mobile nav drawer is open so it doesn't sit over the menu */
+body:has(.nav-toggle:checked) .whatsapp-fab {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms var(--ease);
+}
