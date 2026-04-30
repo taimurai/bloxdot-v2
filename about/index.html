@@ -1262,5 +1262,26 @@
 })();
 </script>
 
+<!-- Reliable in-page anchor scroll · fixes Facebook/IG/iOS in-app browsers stopping the smooth-scroll early -->
+<script>
+(function(){
+  function offset(){
+    var n = document.getElementById('nav');
+    return (n ? n.offsetHeight : 60) + 12;
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.length < 2) return;
+    var t = document.getElementById(href.slice(1));
+    if (!t) return;
+    e.preventDefault();
+    var top = t.getBoundingClientRect().top + window.pageYOffset - offset();
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    if (history.pushState) history.pushState(null, '', href);
+  });
+})();
+</script>
 </body>
 </html>
