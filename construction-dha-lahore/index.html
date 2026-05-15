@@ -2316,7 +2316,9 @@
   // Sticky mobile CTA bar visibility
   // Show only when: hero CTAs have left the viewport AND the contact form is not in view.
   // Body bottom-padding is toggled in lockstep so it doesn't reserve space when the bar is hidden.
-  (function(){
+  // Deferred to DOMContentLoaded because the .mobile-cta-bar element is parsed AFTER
+  // this script block in the HTML — otherwise querySelector would return null.
+  function setupStickyBar(){
     var bar = document.querySelector('.mobile-cta-bar');
     var heroCtas = document.querySelector('.hero-cta-row');
     var contact = document.getElementById('contact');
@@ -2347,7 +2349,12 @@
         update();
       }, { threshold: 0.15 }).observe(contact);
     }
-  })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupStickyBar);
+  } else {
+    setupStickyBar();
+  }
 
   // scroll_75 — fires once when the user passes 75% of page height.
   // Uses a positioned sentinel + IntersectionObserver instead of a scroll
