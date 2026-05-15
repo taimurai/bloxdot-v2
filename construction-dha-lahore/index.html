@@ -413,9 +413,9 @@
 
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 64px; }
-    .hero-image { aspect-ratio: 4/5; min-height: 0; height: auto; }
+    /* Hero image becomes a bounded supporting visual on mobile, not a full-bleed hero */
+    .hero-image { aspect-ratio: auto; min-height: 0; height: 280px; max-height: 280px; }
     .hero-left { padding: 40px var(--page-pad); }
-    .hero-prehead { flex-direction: column; gap: 4px; align-items: flex-start; }
   }
 
   /* ============ SECTION 02 — FIVE PROJECT TYPES (3+2 tile grid) ============ */
@@ -1362,14 +1362,69 @@
   .mobile-cta-bar a + a { border-left: 1px solid rgba(242,237,228,0.14); }
   .mobile-cta-bar .wa { background: var(--wa-green); color: #fff; }
   .mobile-cta-bar svg { width: 16px; height: 16px; fill: currentColor; }
+  /* Slide out of view when the contact form is visible (avoids double-CTA) */
+  .mobile-cta-bar { transition: transform 0.28s var(--ease); }
+  .mobile-cta-bar.is-hidden { transform: translateY(100%); }
   @media (max-width: 720px) {
     .mobile-cta-bar { display: flex; }
     body { padding-bottom: 60px; }
-    .whatsapp-fab { bottom: 80px !important; }
+    /* The floating WhatsApp bubble becomes redundant with the sticky bar — hide on mobile only */
+    .whatsapp-fab { display: none !important; }
   }
 
   /* ============ SIMPLIFIED FORM ============ */
   .cta-form-simple .field { margin-bottom: 18px; }
+
+  /* ============ MOBILE OPTIMIZATION (≤720px) ============
+     Single consolidated block — overrides earlier rules where mobile
+     needs tighter spacing, scaled typography, larger tap targets. */
+  @media (max-width: 720px) {
+    /* --- Typography scale --- */
+    .hero-head h1,
+    h1.display { font-size: clamp(2rem, 8vw, 3.5rem); line-height: 1.1; }
+    h2.display { font-size: clamp(1.5rem, 6vw, 2.25rem); line-height: 1.15; }
+    .hero-sub { font-size: 16px; line-height: 1.55; }
+    .hero-body { font-size: 15px; line-height: 1.6; }
+    .hero-prehead { font-size: 12px; letter-spacing: 0.18em; line-height: 1.5; }
+
+    /* --- Section padding: 48px vertical, 20px horizontal --- */
+    .sec-dha, .sec-pricing, .sec-typology, .sec-deliverables,
+    .sec-process, .sec-work, .sec-fears, .sec-faq, .sec-contact,
+    .commitment-block { padding: 48px 20px; }
+    .sec-standard { padding: 56px 20px; }
+
+    /* Hero-left padding tightened too */
+    .hero-left { padding: 32px 20px 40px; }
+
+    /* --- Pricing block tweaks --- */
+    .price-card { padding: 24px; }
+    .price-card .price { font-size: 28px; }
+    .price-card h3 { font-size: 20px; }
+
+    /* --- Form fields: prevent iOS zoom-on-focus (needs 16px+),
+           and meet 48px minimum tap-target height --- */
+    .hero-form input,
+    .hero-form textarea,
+    .cta-form input,
+    .cta-form textarea,
+    .cta-form select { font-size: 16px; min-height: 48px; }
+    .hero-form textarea,
+    .cta-form textarea { min-height: 88px; }
+
+    /* --- Buttons: minimum 44×44 tap target, tactile active state --- */
+    .btn-red, .btn-ghost, .btn-wa, .btn-call,
+    .hero-form button[type="submit"],
+    .cta-form button { min-height: 48px; padding: 14px 20px; }
+
+    /* Active states for tap feedback (replaces hover on touch devices) */
+    .btn-red:active, .btn-ghost:active, .btn-wa:active,
+    .btn-call:active, .hero-form button[type="submit"]:active,
+    .cta-form button:active { transform: scale(0.98); transition: transform 80ms ease; }
+    .work-tile:active .tile-img { transform: scale(0.99); transition: transform 120ms ease; }
+
+    /* Remove hover-only states on touch */
+    .btn-red:hover, .btn-ghost:hover, .btn-wa:hover, .btn-call:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -2213,6 +2268,21 @@
       try { window.dataLayer.push({ event: 'phone_click', placement: placement, page: 'construction-dha' }); } catch (_) {}
     }
   }, true);
+
+  // Hide the sticky mobile CTA bar when the contact form section is visible
+  // (avoids double-CTA — they already see the form).
+  (function(){
+    var bar = document.querySelector('.mobile-cta-bar');
+    var contact = document.getElementById('contact');
+    if (!bar || !contact || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) bar.classList.add('is-hidden');
+        else bar.classList.remove('is-hidden');
+      });
+    }, { threshold: 0.15 });
+    io.observe(contact);
+  })();
 
   // scroll_75 — fires once when user passes 75% of page height
   (function(){
