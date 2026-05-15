@@ -77,6 +77,13 @@
 /* ---------- Base ---------- */
 * { box-sizing: border-box; }
 
+/* Ensure the HTML5 `hidden` attribute always wins. Some form containers
+   use `display: grid` (.cta-form, .hero-form) which has equal specificity
+   to `[hidden]` and would otherwise keep the element rendered — the
+   "Sending…" button staying visible behind the success card was caused
+   by this. */
+[hidden] { display: none !important; }
+
 html, body {
   margin: 0;
   background: var(--bg);
