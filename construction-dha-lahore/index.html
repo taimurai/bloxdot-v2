@@ -365,12 +365,16 @@
     justify-content: space-between;
   }
   .hero-prehead {
-    display: flex; justify-content: space-between; gap: 16px;
+    display: flex; align-items: center; gap: 16px;
     font-family: ui-monospace, monospace;
     font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--fg-muted); font-weight: 500;
   }
+  .hero-prehead .prehead-line { white-space: nowrap; }
   .hero-prehead .edition { color: var(--bd-brass); }
+  @media (max-width: 900px) {
+    .hero-prehead .prehead-line { white-space: normal; }
+  }
   .hero-head { display: flex; flex-direction: column; gap: 22px; }
   .hero-head h1 {
     font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
@@ -1039,18 +1043,21 @@
   }
   .btn-wa:hover { transform: translateY(-1px); background: #1ebe5b; }
   .btn-wa svg { width: 14px; height: 14px; fill: currentColor; }
+  /* Outline (ghost) call button — matches site secondary CTA style. */
   .btn-call {
-    display: none; /* mobile-only by default; hero-call shown via media query */
-    align-items: center; gap: 8px;
-    background: var(--bd-ink); color: var(--bd-bone);
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--bd-ink);
     padding: 12px 20px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
-    text-decoration: none; border: 0; cursor: pointer;
-    transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+    text-decoration: none; border: 1px solid var(--bd-ink); cursor: pointer;
+    transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .btn-call:hover { transform: translateY(-1px); background: var(--bd-graphite); }
+  .btn-call:hover { transform: translateY(-1px); background: var(--bd-ink); color: var(--bd-bone); }
   .btn-call svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* Mobile: stack hero CTAs vertically, full width each. */
   @media (max-width: 720px) {
-    .btn-call.hero-call { display: inline-flex; }
+    .hero-cta-row { flex-direction: column; align-items: stretch; }
+    .hero-cta-row > a { width: 100%; justify-content: center; }
   }
 
   .hero-dha-line {
@@ -1416,8 +1423,7 @@
   <section class="hero">
     <div class="hero-left">
       <div class="hero-prehead">
-        <span>01 · CONSTRUCTION · DHA LAHORE</span>
-        <span class="edition">DHA PHASE 5 · 6 · 7</span>
+        <span class="prehead-line">01 · CONSTRUCTION · DHA LAHORE · <span class="edition">PHASE 5, 6, 7</span></span>
       </div>
 
       <div class="hero-head">
@@ -1456,7 +1462,7 @@
         </div>
         <div class="field">
           <label for="f-hero-phone">WhatsApp / Phone</label>
-          <input id="f-hero-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+92 300 0000000"/>
+          <input id="f-hero-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+92 300 1234567"/>
         </div>
         <div class="field">
           <label for="f-hero-scope">Tell us about the project</label>
