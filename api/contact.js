@@ -49,7 +49,7 @@ export default async function handler(req, res) {
   const utmContent = str(body.utm_content);
 
   // Landing-page attribution. Whitelist ensures the singleSelect never sees junk.
-  const ALLOWED_LANDINGS = new Set(['corporate', 'corporate-quote', 'furniture', 'tech', 'homepage', 'architecture', 'interior-design', 'construction', 'construction-dha', 'supervision', 'about']);
+  const ALLOWED_LANDINGS = new Set(['corporate', 'corporate-quote', 'furniture', 'tech', 'homepage', 'architecture', 'architecture-dha', 'interior-design', 'construction', 'construction-dha', 'supervision', 'about']);
   const landingRaw = str(body.landing).toLowerCase();
   const landing = ALLOWED_LANDINGS.has(landingRaw) ? landingRaw : 'corporate';
 
@@ -57,14 +57,14 @@ export default async function handler(req, res) {
   const errors = {};
   if (!name || name.length < 2) errors.name = 'Please enter your name.';
   // Email is optional on minimal ad LPs that collect phone-only. If provided, still validate format.
-  const LANDINGS_WITHOUT_EMAIL = new Set(['construction-dha']);
+  const LANDINGS_WITHOUT_EMAIL = new Set(['construction-dha', 'architecture-dha']);
   if (LANDINGS_WITHOUT_EMAIL.has(landing)) {
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Please enter a valid email.';
   } else {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Please enter a valid email.';
   }
   if (!phone || phone.replace(/\D/g, '').length < 7) errors.phone = 'Please enter a valid phone number.';
-  const LANDINGS_WITHOUT_OFFICE_SIZE = new Set(['homepage', 'architecture', 'interior-design', 'construction', 'construction-dha', 'supervision', 'about', 'corporate-quote']);
+  const LANDINGS_WITHOUT_OFFICE_SIZE = new Set(['homepage', 'architecture', 'architecture-dha', 'interior-design', 'construction', 'construction-dha', 'supervision', 'about', 'corporate-quote']);
   if (!LANDINGS_WITHOUT_OFFICE_SIZE.has(landing) && !officeSize) errors.officeSize = 'Please enter approximate size.';
   // Cold-traffic ad LPs ask for a brief but don't require it — capture happens on WhatsApp follow-up.
   const LANDINGS_WITHOUT_PROJECT_BRIEF = new Set(['corporate-quote']);
