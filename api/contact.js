@@ -38,6 +38,8 @@ export default async function handler(req, res) {
   const budget = str(body.budget);
   const basedInPakistan = str(body.basedInPakistan);
   const existingClient = str(body.existingClient);
+  // Form position on the page (e.g. "hero" vs "footer") — pages with multiple forms send this for breakdown.
+  const formLocation = str(body.formLocation).toLowerCase();
 
   // UTM attribution (all optional)
   const utmSource = str(body.utm_source);
@@ -95,6 +97,9 @@ export default async function handler(req, res) {
     else if (ec.includes('design completed')) briefPrefix += '[EXISTING CLIENT - design done] ';
     else if (ec.includes('considering')) briefPrefix += '[PROSPECT - considering design] ';
   }
+  // Tag form position (hero vs footer) so the team can see at a glance which form converted.
+  if (formLocation === 'hero')   briefPrefix += '[HERO FORM] ';
+  else if (formLocation === 'footer') briefPrefix += '[FOOTER FORM] ';
   if (briefPrefix) {
     fields['Project Brief'] = clip(briefPrefix + projectBrief, 4000);
   }

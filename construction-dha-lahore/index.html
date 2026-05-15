@@ -1061,6 +1061,100 @@
     margin: 0;
   }
 
+  /* ============ HERO INLINE FORM ============ */
+  /* The hero needs position:relative so the form can absolute-position over the image. */
+  .hero { position: relative; }
+  .hero-form-wrap {
+    position: absolute;
+    top: 50%;
+    right: clamp(24px, 4vw, 64px);
+    transform: translateY(-50%);
+    width: clamp(340px, 28vw, 410px);
+    z-index: 5;
+  }
+  .hero-form {
+    background: #fff;
+    color: var(--bd-ink);
+    border: 1px solid var(--rule-soft);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 6px 16px rgba(0,0,0,0.08);
+    padding: 26px 26px 22px;
+    display: grid; gap: 12px;
+  }
+  .hero-form .form-eyebrow {
+    font-family: ui-monospace, monospace;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--bd-brass); font-weight: 600;
+    margin: 0;
+  }
+  .hero-form h3 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 320; font-size: clamp(20px, 1.7vw, 24px);
+    line-height: 1.15; letter-spacing: -0.015em;
+    color: var(--bd-ink); margin: 0 0 2px;
+    text-transform: lowercase;
+  }
+  .hero-form .field { display: grid; gap: 4px; }
+  .hero-form label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+  }
+  .hero-form input,
+  .hero-form textarea {
+    font-family: var(--f-sans); font-size: 14px; color: var(--bd-ink);
+    padding: 9px 0;
+    background: transparent;
+    border: 0; border-bottom: 1px solid var(--rule);
+    outline: none; border-radius: 0;
+    transition: border-color var(--dur) var(--ease);
+    width: 100%;
+  }
+  .hero-form input:focus,
+  .hero-form textarea:focus { border-bottom-color: var(--accent); }
+  .hero-form textarea { resize: vertical; min-height: 60px; line-height: 1.5; }
+  .hero-form button[type="submit"] {
+    margin-top: 6px;
+    background: var(--accent); color: #fff;
+    border: 0; padding: 13px 18px;
+    font-family: var(--f-sans); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; font-weight: 600;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background var(--dur) var(--ease);
+  }
+  .hero-form button[type="submit"]:hover { background: color-mix(in oklab, var(--accent) 88%, #000); }
+  .hero-form button[type="submit"]:disabled { opacity: 0.55; cursor: default; }
+  .hero-form .fine {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--fg-muted); text-align: center;
+    margin-top: 2px; font-weight: 500;
+  }
+  .hero-form-success {
+    background: #fff;
+    border: 1px solid var(--rule-soft);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 6px 16px rgba(0,0,0,0.08);
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .hero-form-success h4 {
+    font-family: var(--f-serif); font-variation-settings: "opsz" 144;
+    font-weight: 320; font-size: 22px;
+    color: var(--bd-ink); margin: 0 0 10px;
+    text-transform: lowercase;
+  }
+  .hero-form-success h4 .dot { color: var(--accent); }
+  .hero-form-success p {
+    font-size: 13px; line-height: 1.55; color: var(--fg-body); margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero-form-wrap {
+      position: static;
+      transform: none;
+      width: auto;
+      margin: 0 var(--page-pad) 32px;
+    }
+  }
+
   /* ============ SECTION — DHA, SPECIFICALLY ============ */
   .sec-dha {
     background: var(--bd-bone);
@@ -1347,6 +1441,37 @@
 
       <div class="hero-bottom">
         LED BY <a href="/about" style="color:inherit;text-decoration:none">SOHAIB SAJID</a> · OFFICE: DHA PHASE 6, LAHORE
+      </div>
+    </div>
+
+    <!-- Hero inline form: desktop = card overlaid on hero image; mobile = stacked below CTAs -->
+    <div class="hero-form-wrap">
+      <form class="hero-form" id="heroLeadForm" novalidate>
+        <p class="form-eyebrow">Get a BOQ-based quote</p>
+        <h3>start a conversation<span class="dot">.</span></h3>
+
+        <div class="field">
+          <label for="f-hero-name">Your name</label>
+          <input id="f-hero-name" name="name" type="text" autocomplete="name" required/>
+        </div>
+        <div class="field">
+          <label for="f-hero-phone">WhatsApp / Phone</label>
+          <input id="f-hero-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+92 300 0000000"/>
+        </div>
+        <div class="field">
+          <label for="f-hero-scope">Tell us about the project</label>
+          <textarea id="f-hero-scope" name="scope" rows="3" required minlength="10" placeholder="Plot size, phase, scope."></textarea>
+        </div>
+
+        <input type="hidden" name="form_location" value="hero"/>
+
+        <button type="submit" id="f-hero-submit">Start a conversation &nbsp;→</button>
+        <div class="fine" id="f-hero-fine">We reply on WhatsApp within 24 hours. No obligation.</div>
+      </form>
+
+      <div class="hero-form-success" id="heroLeadSuccess" hidden>
+        <h4>thanks<span class="dot">.</span></h4>
+        <p>We'll reach out within 24 hours on WhatsApp.</p>
       </div>
     </div>
 
@@ -1888,6 +2013,7 @@
           <label for="f-scope">Tell us about the project</label>
           <textarea id="f-scope" name="scope" required minlength="10" placeholder="Plot size, phase, scope — a few lines is enough."></textarea>
         </div>
+        <input type="hidden" name="form_location" value="footer"/>
         <button type="submit" id="f-submit">Start a conversation &nbsp;→</button>
         <div class="fine" id="f-fine">We reply within 24 hours. No obligation.</div>
       </form>
@@ -1983,15 +2109,20 @@
     } catch (_) { return {}; }
   }
 
-  const form = document.getElementById('leadForm');
-  const success = document.getElementById('leadSuccess');
-  if (form) {
-    const submitBtn = document.getElementById('f-submit');
-    const fine = document.getElementById('f-fine');
+  // Shared setup for both forms on this page (hero + footer).
+  // Each form keeps identical validation + tracking; only the form_location label differs.
+  function setupForm(opts) {
+    const form = document.getElementById(opts.formId);
+    const success = document.getElementById(opts.successId);
+    if (!form || !success) return;
+    const submitBtn = form.querySelector(opts.submitBtnSelector);
+    const fine = form.querySelector(opts.fineSelector);
+    if (!submitBtn || !fine) return;
     const originalLabel = submitBtn.textContent;
+    const defaultFine = fine.textContent;
 
     function setError(msg) { fine.textContent = msg; fine.style.color = 'var(--accent)'; }
-    function resetError() { fine.textContent = 'We reply within 24 hours. No obligation.'; fine.style.color = ''; }
+    function resetError() { fine.textContent = defaultFine; fine.style.color = ''; }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -2011,7 +2142,8 @@
       const payload = Object.assign({
         name, phone,
         projectBrief: scope,
-        landing: 'construction-dha'
+        landing: 'construction-dha',
+        formLocation: opts.formLocation
       }, getStoredUtms());
 
       try {
@@ -2027,15 +2159,16 @@
           submitBtn.disabled = false;
           return;
         }
-        try { if (window.fbq) fbq('track', 'Lead', { source: 'construction-dha' }); } catch (_) {}
+        try { if (window.fbq) fbq('track', 'Lead', { source: 'construction-dha', form_location: opts.formLocation }); } catch (_) {}
         try {
           if (window.gtag) gtag('event', 'generate_lead', {
             landing: 'construction-dha',
-            method: 'construction_dha_form'
+            method: 'construction_dha_form',
+            form_location: opts.formLocation
           });
         } catch (_) {}
         // GTM dataLayer
-        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'form_submit', landing: 'construction-dha' }); } catch (_) {}
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'form_submit', landing: 'construction-dha', form_location: opts.formLocation }); } catch (_) {}
         form.hidden = true;
         success.hidden = false;
         try { success.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}
@@ -2046,6 +2179,21 @@
       }
     });
   }
+
+  setupForm({
+    formId: 'heroLeadForm',
+    successId: 'heroLeadSuccess',
+    submitBtnSelector: '#f-hero-submit',
+    fineSelector: '#f-hero-fine',
+    formLocation: 'hero'
+  });
+  setupForm({
+    formId: 'leadForm',
+    successId: 'leadSuccess',
+    submitBtnSelector: '#f-submit',
+    fineSelector: '#f-fine',
+    formLocation: 'footer'
+  });
 
   // ============ GTM dataLayer: WhatsApp + phone + scroll events ============
   window.dataLayer = window.dataLayer || [];
