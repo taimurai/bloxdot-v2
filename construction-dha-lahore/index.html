@@ -413,9 +413,28 @@
 
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 64px; }
-    /* Hero image becomes a bounded supporting visual on mobile, not a full-bleed hero */
-    .hero-image { aspect-ratio: auto; min-height: 0; height: 280px; max-height: 280px; }
-    .hero-left { padding: 40px var(--page-pad); }
+    .hero-left {
+      padding: 40px var(--page-pad);
+      grid-row: 1; grid-column: 1;
+    }
+    /* On mobile, image + form share grid row 2 — form overlays image like desktop */
+    .hero-image {
+      grid-row: 2; grid-column: 1;
+      aspect-ratio: auto;
+      min-height: 0;
+      height: 600px;
+      max-height: 600px;
+      position: relative;
+    }
+    /* Subtle dark overlay on image for form-card readability */
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      pointer-events: none;
+    }
   }
 
   /* ============ SECTION 02 — FIVE PROJECT TYPES (3+2 tile grid) ============ */
@@ -1160,12 +1179,21 @@
   }
 
   @media (max-width: 900px) {
+    /* Mobile: form-card sits in the same grid cell as the hero image (row 2),
+       centered horizontally and vertically, layered above the image overlay. */
     .hero-form-wrap {
-      position: static;
+      position: relative;
+      top: auto; right: auto;
       transform: none;
-      width: auto;
-      margin: 0 var(--page-pad) 32px;
+      grid-row: 2; grid-column: 1;
+      align-self: center;
+      justify-self: center;
+      width: calc(100% - 32px);
+      max-width: 460px;
+      margin: 0;
+      z-index: 2;
     }
+    .hero-form { padding: 24px; }
   }
 
   /* ============ SECTION — DHA, SPECIFICALLY ============ */
