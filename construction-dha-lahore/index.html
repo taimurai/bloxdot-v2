@@ -1118,7 +1118,7 @@
     color: var(--bd-brass); font-weight: 600;
     margin: 0;
   }
-  .hero-form h3 {
+  .hero-form h2 {
     font-family: var(--f-serif); font-variation-settings: "opsz" 144, "SOFT" 30;
     font-weight: 320; font-size: clamp(20px, 1.7vw, 24px);
     line-height: 1.15; letter-spacing: -0.015em;
@@ -1167,13 +1167,13 @@
     padding: 32px 28px;
     text-align: center;
   }
-  .hero-form-success h4 {
+  .hero-form-success h3 {
     font-family: var(--f-serif); font-variation-settings: "opsz" 144;
     font-weight: 320; font-size: 22px;
     color: var(--bd-ink); margin: 0 0 10px;
     text-transform: lowercase;
   }
-  .hero-form-success h4 .dot { color: var(--accent); }
+  .hero-form-success h3 .dot { color: var(--accent); }
   .hero-form-success p {
     font-size: 13px; line-height: 1.55; color: var(--fg-body); margin: 0;
   }
@@ -1487,7 +1487,7 @@
 
     <div class="nav-item-services">
       <button type="button" class="nav-services-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
-      <div class="nav-mega" role="menu" aria-label="Services">
+      <div class="nav-mega" aria-label="Services">
       <div class="nav-mega-col">
         <span class="nav-mega-label">design</span>
         <a class="nav-mega-link" href="/architecture">Architecture</a>
@@ -1552,7 +1552,7 @@
     <div class="hero-form-wrap">
       <form class="hero-form" id="heroLeadForm" novalidate>
         <p class="form-eyebrow">Get a BOQ-based quote</p>
-        <h3>start a conversation<span class="dot">.</span></h3>
+        <h2>start a conversation<span class="dot">.</span></h2>
 
         <div class="field">
           <label for="f-hero-name">Your name</label>
@@ -1574,7 +1574,7 @@
       </form>
 
       <div class="hero-form-success" id="heroLeadSuccess" hidden>
-        <h4>thanks<span class="dot">.</span></h4>
+        <h3>thanks<span class="dot">.</span></h3>
         <p>We'll reach out within 24 hours on WhatsApp.</p>
       </div>
     </div>
@@ -1583,7 +1583,7 @@
       <img
         class="hero-img"
         src="/assets/img/construction/hero.webp"
-        width="2000" height="2000"
+        width="1200" height="1200"
         fetchpriority="high"
         decoding="async"
         alt="BloxDot construction site, structural works in progress, DHA Lahore."/>
@@ -1700,7 +1700,7 @@
             <img
               class="thumb-img"
               src="/assets/img/construction/residential.webp"
-              width="800" height="1000"
+              width="640" height="800"
               loading="lazy" decoding="async"
               alt="Residential villa under construction, BloxDot Lahore project."/>
           </div>
@@ -1715,7 +1715,7 @@
             <img
               class="thumb-img"
               src="/assets/img/construction/multi-unit.webp"
-              width="800" height="1000"
+              width="640" height="800"
               loading="lazy" decoding="async"
               alt="Multi-unit residential building under construction, BloxDot project."/>
           </div>
@@ -1730,7 +1730,7 @@
             <img
               class="thumb-img"
               src="/assets/img/construction/commercial.webp"
-              width="800" height="1000"
+              width="640" height="800"
               loading="lazy" decoding="async"
               alt="Commercial shell-and-core building under construction, BloxDot project."/>
           </div>
@@ -1745,7 +1745,7 @@
             <img
               class="thumb-img"
               src="/assets/img/construction/hospitality.webp"
-              width="800" height="1000"
+              width="640" height="800"
               loading="lazy" decoding="async"
               alt="Hospitality build under construction, BloxDot project."/>
           </div>
@@ -1760,7 +1760,7 @@
             <img
               class="thumb-img"
               src="/assets/img/construction/renovation.webp"
-              width="800" height="1000"
+              width="640" height="800"
               loading="lazy" decoding="async"
               alt="Renovation and retrofit project, BloxDot construction."/>
           </div>
@@ -2349,21 +2349,36 @@
     }
   })();
 
-  // scroll_75 — fires once when user passes 75% of page height
+  // scroll_75 — fires once when the user passes 75% of page height.
+  // Uses a positioned sentinel + IntersectionObserver instead of a scroll
+  // listener that reads layout (scrollHeight/innerHeight) on every event,
+  // which PageSpeed flags as forced reflow.
   (function(){
-    var fired = false;
-    function onScroll(){
-      if (fired) return;
-      var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-      var winH = window.innerHeight;
-      var scrolled = window.scrollY || window.pageYOffset;
-      if ((scrolled + winH) / docH >= 0.75) {
-        fired = true;
-        try { window.dataLayer.push({ event: 'scroll_75', page: 'construction-dha' }); } catch (_) {}
-        window.removeEventListener('scroll', onScroll);
+    if (!('IntersectionObserver' in window)) return;
+    function setup(){
+      var docH = document.documentElement.scrollHeight;
+      var sentinel = document.createElement('div');
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.cssText = 'position:absolute;top:' + Math.floor(docH * 0.75) + 'px;left:0;width:1px;height:1px;pointer-events:none;';
+      if (getComputedStyle(document.body).position === 'static') {
+        document.body.style.position = 'relative';
       }
+      document.body.appendChild(sentinel);
+      var fired = false;
+      var io = new IntersectionObserver(function(entries){
+        if (fired) return;
+        if (entries[0].isIntersecting) {
+          fired = true;
+          try { window.dataLayer.push({ event: 'scroll_75', page: 'construction-dha' }); } catch (_) {}
+          io.disconnect();
+          sentinel.remove();
+        }
+      });
+      io.observe(sentinel);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Wait for `load` so images/fonts are settled and scrollHeight is accurate.
+    if (document.readyState === 'complete') setup();
+    else window.addEventListener('load', setup, { once: true });
   })();
 })();
 </script>
