@@ -133,6 +133,13 @@ img { display: block; max-width: 100%; }
   margin-left: 0.04em;
 }
 
+/* Lowercase-headline exception. Wrap proper nouns + acronyms in
+   <span class="caps"> to opt them out of the text-transform: lowercase
+   rule applied to .dot-title and .display headings. Used for place
+   names (Lahore, Karachi, etc.), acronyms (DHA, BOQ, MEP, HVAC), and
+   person names — keeps the brand convention readable. */
+.caps { text-transform: none; }
+
 .eyebrow {
   font-family: var(--f-sans);
   font-size: 11px;
