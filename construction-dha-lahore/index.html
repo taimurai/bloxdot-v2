@@ -1060,6 +1060,12 @@
     .hero-cta-row > a { width: 100%; justify-content: center; }
   }
 
+  /* Hide "See construction projects" ghost button on mobile (<768px) —
+     focus the hero on WhatsApp + Call only. Desktop keeps it. */
+  @media (max-width: 767px) {
+    .hero-cta-row .btn-ghost { display: none; }
+  }
+
   .hero-dha-line {
     font-family: ui-monospace, monospace;
     font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -1362,12 +1368,23 @@
   .mobile-cta-bar a + a { border-left: 1px solid rgba(242,237,228,0.14); }
   .mobile-cta-bar .wa { background: var(--wa-green); color: #fff; }
   .mobile-cta-bar svg { width: 16px; height: 16px; fill: currentColor; }
-  /* Slide out of view when the contact form is visible (avoids double-CTA) */
-  .mobile-cta-bar { transition: transform 0.28s var(--ease); }
-  .mobile-cta-bar.is-hidden { transform: translateY(100%); }
+  /* Hidden by default. JS adds .is-visible once hero CTAs leave the
+     viewport, and removes it when the contact form is in view. */
+  .mobile-cta-bar {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .mobile-cta-bar.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
   @media (max-width: 720px) {
     .mobile-cta-bar { display: flex; }
-    body { padding-bottom: 60px; }
+    /* Body bottom padding only when bar is actually visible (JS toggles class on body). */
+    body.has-sticky-bar { padding-bottom: 60px; }
     /* The floating WhatsApp bubble becomes redundant with the sticky bar — hide on mobile only */
     .whatsapp-fab { display: none !important; }
   }
@@ -2269,19 +2286,40 @@
     }
   }, true);
 
-  // Hide the sticky mobile CTA bar when the contact form section is visible
-  // (avoids double-CTA — they already see the form).
+  // Sticky mobile CTA bar visibility
+  // Show only when: hero CTAs have left the viewport AND the contact form is not in view.
+  // Body bottom-padding is toggled in lockstep so it doesn't reserve space when the bar is hidden.
   (function(){
     var bar = document.querySelector('.mobile-cta-bar');
+    var heroCtas = document.querySelector('.hero-cta-row');
     var contact = document.getElementById('contact');
-    if (!bar || !contact || !('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) bar.classList.add('is-hidden');
-        else bar.classList.remove('is-hidden');
-      });
-    }, { threshold: 0.15 });
-    io.observe(contact);
+    if (!bar || !('IntersectionObserver' in window)) return;
+
+    var heroInView = true;       // page loads with hero visible
+    var contactInView = false;
+
+    function update() {
+      var shouldShow = !heroInView && !contactInView;
+      bar.classList.toggle('is-visible', shouldShow);
+      document.body.classList.toggle('has-sticky-bar', shouldShow);
+    }
+
+    if (heroCtas) {
+      new IntersectionObserver(function(entries){
+        heroInView = entries[0].isIntersecting;
+        update();
+      }, { threshold: 0 }).observe(heroCtas);
+    } else {
+      heroInView = false;
+      update();
+    }
+
+    if (contact) {
+      new IntersectionObserver(function(entries){
+        contactInView = entries[0].isIntersecting;
+        update();
+      }, { threshold: 0.15 }).observe(contact);
+    }
   })();
 
   // scroll_75 — fires once when user passes 75% of page height
