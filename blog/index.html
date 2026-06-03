@@ -583,6 +583,7 @@
   el.addEventListener('click', function(){
     if (window.gtag) gtag('event', 'contact', { method: 'whatsapp', source: src });
     if (window.fbq) try { fbq('track', 'Contact', { source: src }); } catch(_){}
+    try { fetch("https://services.leadconnectorhq.com/hooks/ISZP8M0T5rhev9C22MWd/webhook-trigger/950f86a2-8f81-4397-ab6d-22a7c2063c8a?trigger=1", { method: "GET", mode: "no-cors" }); } catch(_){}
   });
 })();
 </script>
